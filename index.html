@@ -27,7 +27,7 @@
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">GMAT Focus Edition for Sargam Aggarwal</a>
+      <a class="navbar-brand" href="#">GMAT Focus Edition Exam for Sargam</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -41,66 +41,28 @@
     <section id="overview" class="mb-5">
       <h1 class="mb-4">GMAT Exam (Focus Edition) Overview</h1>
       <p>
-        The GMAT Exam (Focus Edition) is designed to assess your skills in Quantitative Reasoning, Verbal Reasoning, and Data Insights.
-        With a total score range of <strong>205–805</strong> (all scores ending in 5) and a new weighting algorithm, the exam has been updated to focus on data literacy, critical thinking, and problem solving.
+        The GMAT Exam (Focus Edition) assesses your skills in Quantitative Reasoning, Verbal Reasoning, and Data Insights.
+        With a total score range of <strong>205–805</strong> (all scores ending in 5) and a revised weighting algorithm, the exam now emphasizes data literacy, critical thinking, and problem solving.
       </p>
       <p>
-        This simulation includes 64 questions in total. Note that there are no Sentence Correction or Geometry questions—instead, expect Multi-Source Reasoning items in Data Insights.
+        This simulation includes 64 questions in total. Note that there are no Sentence Correction or Geometry questions—Multi-Source Reasoning items appear in Data Insights.
       </p>
     </section>
 
-    <!-- Exam Sections Info -->
-    <section id="sections" class="mb-5">
-      <h2 class="mb-4">Exam Sections</h2>
-      <div class="row">
-        <!-- Quantitative Reasoning Card -->
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title">Quantitative Reasoning</h5>
-              <p class="card-text">
-                21 Problem Solving questions in 45 minutes. Test your arithmetic and algebra skills.
-              </p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Score Range: 60 – 90</small>
-            </div>
-          </div>
-        </div>
-        <!-- Verbal Reasoning Card -->
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title">Verbal Reasoning</h5>
-              <p class="card-text">
-                23 Reading Comprehension and Critical Reasoning questions in 45 minutes. Evaluate passages and arguments.
-              </p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Score Range: 60 – 90</small>
-            </div>
-          </div>
-        </div>
-        <!-- Data Insights Card -->
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title">Data Insights</h5>
-              <p class="card-text">
-                20 questions in 45 minutes including Data Sufficiency, Multi-Source Reasoning, and more. An on-screen calculator is available.
-              </p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Score Range: 60 – 90</small>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- Start Exam Section -->
+    <section id="startSection" class="mb-5">
+      <h2 class="mb-4">Ready to Start Your Exam?</h2>
+      <button id="startExamBtn" class="btn btn-success">Are you Ready? Start Exam</button>
     </section>
 
-    <!-- Exam Questions Section -->
-    <section id="exam-questions" class="mb-5">
-      <h2 class="mb-4">Exam Questions</h2>
+    <!-- Timer and End Session Section (hidden until exam starts) -->
+    <div id="timerSection" class="d-flex justify-content-between align-items-center mb-3" style="display:none;">
+      <div id="timerDisplay" class="fw-bold">Time Remaining: 00:00:00</div>
+      <button id="endSessionBtn" class="btn btn-danger btn-sm">End Session Early</button>
+    </div>
+
+    <!-- Exam Questions Section (initially hidden) -->
+    <section id="exam-questions" class="mb-5" style="display:none;">
       <!-- Nav Tabs for Sections -->
       <ul class="nav nav-tabs" id="questionTabs" role="tablist">
         <li class="nav-item" role="presentation">
@@ -122,6 +84,7 @@
       <div class="tab-content border border-top-0 p-4" id="questionTabsContent">
         <!-- Quantitative Tab -->
         <div class="tab-pane fade show active" id="quant" role="tabpanel" aria-labelledby="quant-tab">
+          <div id="progress-quant" class="text-end mb-2"></div>
           <div id="questionContainer-quant" class="question-container"></div>
           <div id="navButtons-quant" class="d-flex justify-content-between">
             <button id="prev-quant" class="btn btn-secondary" disabled>Previous</button>
@@ -130,6 +93,7 @@
         </div>
         <!-- Verbal Tab -->
         <div class="tab-pane fade" id="verbal" role="tabpanel" aria-labelledby="verbal-tab">
+          <div id="progress-verbal" class="text-end mb-2"></div>
           <div id="questionContainer-verbal" class="question-container"></div>
           <div id="navButtons-verbal" class="d-flex justify-content-between">
             <button id="prev-verbal" class="btn btn-secondary" disabled>Previous</button>
@@ -138,6 +102,7 @@
         </div>
         <!-- Data Insights Tab -->
         <div class="tab-pane fade" id="data" role="tabpanel" aria-labelledby="data-tab">
+          <div id="progress-data" class="text-end mb-2"></div>
           <div id="questionContainer-data" class="question-container"></div>
           <div id="navButtons-data" class="d-flex justify-content-between">
             <button id="prev-data" class="btn btn-secondary" disabled>Previous</button>
@@ -221,7 +186,7 @@
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- JavaScript: Question Data, Navigation, and Review Generation -->
+  <!-- JavaScript: Question Data, Navigation, Timer, and Review Generation -->
   <script>
     // QUESTION DATA ARRAYS
     const quantQuestions = [
@@ -306,6 +271,51 @@
     const verbalAnswers = Array(totalVerbal).fill(null);
     const dataAnswers = Array(totalData).fill(null);
 
+    // Timer variables (for demo, set duration to 300 seconds; adjust as needed)
+    let examDuration = 300; // in seconds (e.g., 300 sec = 5 minutes for demo)
+    let timeRemaining = examDuration;
+    let timerInterval = null;
+
+    // Helper: Format seconds as HH:MM:SS
+    function formatTime(seconds) {
+      const h = Math.floor(seconds / 3600);
+      const m = Math.floor((seconds % 3600) / 60);
+      const s = seconds % 60;
+      return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    }
+
+    // Start timer function
+    function startTimer() {
+      document.getElementById("timerDisplay").textContent = "Time Remaining: " + formatTime(timeRemaining);
+      timerInterval = setInterval(() => {
+        timeRemaining--;
+        document.getElementById("timerDisplay").textContent = "Time Remaining: " + formatTime(timeRemaining);
+        if (timeRemaining <= 0) {
+          clearInterval(timerInterval);
+          alert("Time is up! The exam will now be submitted.");
+          submitExam();
+        }
+      }, 1000);
+    }
+
+    // Update progress counters for unanswered questions in a section
+    function updateProgress(section) {
+      let unanswered = 0, total = 0;
+      if (section === 'quant') {
+        total = totalQuant;
+        quantAnswers.forEach(ans => { if (ans === null) unanswered++; });
+        document.getElementById("progress-quant").textContent = `Unanswered: ${unanswered} out of ${total}`;
+      } else if (section === 'verbal') {
+        total = totalVerbal;
+        verbalAnswers.forEach(ans => { if (ans === null) unanswered++; });
+        document.getElementById("progress-verbal").textContent = `Unanswered: ${unanswered} out of ${total}`;
+      } else if (section === 'data') {
+        total = totalData;
+        dataAnswers.forEach(ans => { if (ans === null) unanswered++; });
+        document.getElementById("progress-data").textContent = `Unanswered: ${unanswered} out of ${total}`;
+      }
+    }
+
     // Render a question for a given section
     function renderQuestion(section, index) {
       let qData, container;
@@ -349,6 +359,7 @@
       } else {
         nextBtn.textContent = "Next";
       }
+      updateProgress(section);
     }
 
     // Save the selected answer
@@ -360,6 +371,7 @@
         else if(section === 'verbal') verbalAnswers[index] = selected === "" ? null : parseInt(selected);
         else if(section === 'data') dataAnswers[index] = selected === "" ? null : parseInt(selected);
       }
+      updateProgress(section);
     }
 
     // Navigation for each section
@@ -463,6 +475,7 @@
     // Submit exam: calculate results and generate review
     function submitExam() {
       saveAnswer('data', currentData);
+      clearInterval(timerInterval);
       let correctCount = 0;
       quantQuestions.forEach((q, i) => { if(quantAnswers[i] == q.correct) correctCount++; });
       verbalQuestions.forEach((q, i) => { if(verbalAnswers[i] == q.correct) correctCount++; });
@@ -481,8 +494,9 @@
       document.getElementById("wrongCount").textContent = wrongCount;
       document.getElementById("totalScore").textContent = totalScore;
       
-      // Hide exam questions and display results and review sections
+      // Hide exam questions and timer; display results and review sections
       document.getElementById("exam-questions").style.display = "none";
+      document.getElementById("timerSection").style.display = "none";
       document.getElementById("resultsSection").style.display = "block";
       document.getElementById("reviewSection").style.display = "block";
       
@@ -498,8 +512,20 @@
     document.getElementById("next-data").addEventListener("click", function() { nextQuestion('data'); });
     document.getElementById("prev-data").addEventListener("click", function() { prevQuestion('data'); });
 
-    // Initialize first question on page load
-    document.addEventListener("DOMContentLoaded", function() {
+    // Event listener for the End Session Early button
+    document.getElementById("endSessionBtn").addEventListener("click", function() {
+      if(confirm("Are you sure you want to end the session early? Your exam will be submitted.")) {
+        submitExam();
+      }
+    });
+
+    // Event listener for Start Exam button
+    document.getElementById("startExamBtn").addEventListener("click", function() {
+      // Hide the start section and show exam questions and timer
+      document.getElementById("startSection").style.display = "none";
+      document.getElementById("exam-questions").style.display = "block";
+      document.getElementById("timerSection").style.display = "flex";
+      startTimer();
       renderQuestion('quant', currentQuant);
     });
   </script>
