@@ -3,45 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GMAT Focus Edition Exam Prep</title>
-  <!-- Bootstrap CSS via CDN -->
+  <title>GMAT Focus Edition Exam Simulator</title>
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-    /* Custom styles for large, bold numbers in the results table */
     .score-number {
       font-size: 2.5rem;
       font-weight: bold;
     }
+    .question-container {
+      min-height: 250px;
+      margin-bottom: 20px;
+    }
+    .option-label {
+      cursor: pointer;
+    }
   </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
-  <!-- Navigation -->
+  <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">GMAT Focus Edition Prep</a>
+      <a class="navbar-brand" href="#">GMAT Focus Edition Simulator</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#overview">Overview</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#sections">Exam Sections</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#scoring">Scoring</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#results">Results</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#exam-questions">Exam Questions</a>
-          </li>
-        </ul>
-      </div>
     </div>
   </nav>
 
@@ -49,31 +36,27 @@
   <main class="container my-5">
     <!-- Overview Section -->
     <section id="overview" class="mb-5">
-      <div class="row">
-        <div class="col-12">
-          <h1 class="mb-4">GMAT Exam (Focus Edition) Overview</h1>
-          <p>
-            The GMAT Exam (Focus Edition) is the latest version designed to assess your skills in Quantitative Reasoning, Verbal Reasoning, and Data Insights. With a total score range of
-            <strong>205–805</strong> (all scores ending in 5), the exam now equally weights all three sections.
-          </p>
-          <p>
-            Note: This edition excludes Sentence Correction and Geometry questions while emphasizing Multi-Source Reasoning to measure analytical and problem-solving skills.
-          </p>
-        </div>
-      </div>
+      <h1 class="mb-4">GMAT Exam (Focus Edition) Overview</h1>
+      <p>
+        The GMAT Exam (Focus Edition) is designed to assess your skills in Quantitative Reasoning, Verbal Reasoning, and Data Insights.
+        With a total score range of <strong>205–805</strong> (all scores ending in 5) and a new weighting algorithm, the exam has been updated to focus on data literacy, critical thinking, and problem solving.
+      </p>
+      <p>
+        This simulation includes 64 questions in total, with no Sentence Correction or Geometry questions. Instead, expect Multi-Source Reasoning items in Data Insights.
+      </p>
     </section>
 
-    <!-- Exam Sections -->
+    <!-- Exam Sections Info -->
     <section id="sections" class="mb-5">
       <h2 class="mb-4">Exam Sections</h2>
       <div class="row">
-        <!-- Quantitative Reasoning -->
+        <!-- Quantitative Reasoning Card -->
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title">Quantitative Reasoning</h5>
               <p class="card-text">
-                21 Problem Solving questions in 45 minutes. This section tests your ability to apply arithmetic and algebraic reasoning to solve problems.
+                21 Problem Solving questions in 45 minutes. Test your arithmetic and algebra skills.
               </p>
             </div>
             <div class="card-footer">
@@ -81,13 +64,13 @@
             </div>
           </div>
         </div>
-        <!-- Verbal Reasoning -->
+        <!-- Verbal Reasoning Card -->
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title">Verbal Reasoning</h5>
               <p class="card-text">
-                23 Reading Comprehension and Critical Reasoning questions in 45 minutes. This section evaluates your reading and argument evaluation skills.
+                23 Reading Comprehension and Critical Reasoning questions in 45 minutes. Evaluate passages and arguments.
               </p>
             </div>
             <div class="card-footer">
@@ -95,13 +78,13 @@
             </div>
           </div>
         </div>
-        <!-- Data Insights -->
+        <!-- Data Insights Card -->
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title">Data Insights</h5>
               <p class="card-text">
-                20 questions in 45 minutes, including Data Sufficiency, Multi-Source Reasoning, Table Analysis, Graphics Interpretation, and Two-Part Analysis. An on-screen calculator is provided.
+                20 questions in 45 minutes including Data Sufficiency, Multi-Source Reasoning, and more. An on-screen calculator is available.
               </p>
             </div>
             <div class="card-footer">
@@ -110,48 +93,6 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- Scoring Techniques -->
-    <section id="scoring" class="mb-5">
-      <h2 class="mb-4">Scoring Techniques</h2>
-      <p>
-        The GMAT Exam (Focus Edition) Total Score is calculated by equally weighting the three sections: Quantitative Reasoning, Verbal Reasoning, and Data Insights. Scores are based on:
-      </p>
-      <ul>
-        <li>Number of questions answered</li>
-        <li>Correctness of answers</li>
-        <li>Difficulty and other parameters of the questions</li>
-      </ul>
-      <p>
-        Percentile rankings, based on the previous three years of exam data, help you gauge performance relative to other candidates.
-      </p>
-    </section>
-
-    <!-- Results Table -->
-    <section id="results" class="mb-5">
-      <h2 class="mb-4">Exam Results</h2>
-      <div class="table-responsive">
-        <table class="table table-bordered text-center">
-          <thead class="table-light">
-            <tr>
-              <th>Correct Answers</th>
-              <th>Wrong Answers</th>
-              <th>Total Score</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="score-number">18</td>
-              <td class="score-number">6</td>
-              <td class="score-number">750</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="mt-3">
-        Note: The numbers above are placeholders. Update them with actual performance data as needed.
-      </p>
     </section>
 
     <!-- Exam Questions Section -->
@@ -175,25 +116,54 @@
           </button>
         </li>
       </ul>
-      <div class="tab-content" id="questionTabsContent">
+      <div class="tab-content border border-top-0 p-4" id="questionTabsContent">
         <!-- Quantitative Tab -->
         <div class="tab-pane fade show active" id="quant" role="tabpanel" aria-labelledby="quant-tab">
-          <div class="accordion" id="accordionQuant">
-            <!-- Quantitative questions will be generated here -->
+          <div id="questionContainer-quant" class="question-container"></div>
+          <div id="navButtons-quant" class="d-flex justify-content-between">
+            <button id="prev-quant" class="btn btn-secondary" disabled>Previous</button>
+            <button id="next-quant" class="btn btn-primary">Next</button>
           </div>
         </div>
         <!-- Verbal Tab -->
         <div class="tab-pane fade" id="verbal" role="tabpanel" aria-labelledby="verbal-tab">
-          <div class="accordion" id="accordionVerbal">
-            <!-- Verbal questions will be generated here -->
+          <div id="questionContainer-verbal" class="question-container"></div>
+          <div id="navButtons-verbal" class="d-flex justify-content-between">
+            <button id="prev-verbal" class="btn btn-secondary" disabled>Previous</button>
+            <button id="next-verbal" class="btn btn-primary">Next</button>
           </div>
         </div>
         <!-- Data Insights Tab -->
         <div class="tab-pane fade" id="data" role="tabpanel" aria-labelledby="data-tab">
-          <div class="accordion" id="accordionData">
-            <!-- Data Insights questions will be generated here -->
+          <div id="questionContainer-data" class="question-container"></div>
+          <div id="navButtons-data" class="d-flex justify-content-between">
+            <button id="prev-data" class="btn btn-secondary" disabled>Previous</button>
+            <button id="next-data" class="btn btn-primary">Next</button>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Results Section (hidden until submission) -->
+    <section id="resultsSection" class="mb-5" style="display:none;">
+      <h2 class="mb-4">Exam Results</h2>
+      <div class="table-responsive">
+        <table class="table table-bordered text-center">
+          <thead class="table-light">
+            <tr>
+              <th>Total Correct Answers</th>
+              <th>Total Wrong Answers</th>
+              <th>Total Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="correctCount" class="score-number"></td>
+              <td id="wrongCount" class="score-number"></td>
+              <td id="totalScore" class="score-number"></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
   </main>
@@ -201,93 +171,231 @@
   <!-- Footer -->
   <footer class="bg-light py-4 mt-auto">
     <div class="container text-center">
-      <span class="text-muted">&copy; 2025 GMAT Exam Prep</span>
+      <span class="text-muted">&copy; 2025 GMAT Exam Simulator</span>
     </div>
   </footer>
 
-  <!-- Bootstrap JS Bundle with Popper via CDN -->
+  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <!-- JavaScript to Dynamically Generate Exam Questions -->
+
+  <!-- JavaScript: Question Data and Navigation -->
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      /**
-       * Function to generate questions for a given section.
-       * @param {string} section - 'quant', 'verbal', or 'data'
-       * @param {number} count - Number of questions to generate
-       * @param {string} containerId - The ID of the accordion container
-       */
-      function generateQuestions(section, count, containerId) {
-        const container = document.getElementById(containerId);
-        for (let i = 1; i <= count; i++) {
-          // Construct unique IDs for accordion header and collapse elements
-          const headingId = section + '-heading-' + i;
-          const collapseId = section + '-collapse-' + i;
-          let sectionName = '';
-          if (section === 'quant') {
-            sectionName = "Quantitative Reasoning";
-          } else if (section === 'verbal') {
-            sectionName = "Verbal Reasoning";
-          } else if (section === 'data') {
-            sectionName = "Data Insights";
-          }
-          // Base question text
-          let questionText = "Question " + i + ": Placeholder question text for " + sectionName + ".";
-          
-          // For Data Insights, mark select questions as Multi-Source Reasoning
-          let extraContent = "";
-          if (section === 'data' && (i === 5 || i === 12)) {
-            extraContent = `
-              <div class="mt-3">
-                <h6>Multi-Source Information:</h6>
-                <p><strong>Source 1:</strong> Data excerpt or image description here.</p>
-                <p><strong>Source 2:</strong> Additional context or statistics here.</p>
-              </div>
-            `;
-          }
-          
-          // Create the accordion item element
-          const accordionItem = document.createElement('div');
-          accordionItem.className = 'accordion-item';
-          accordionItem.innerHTML = `
-            <h2 class="accordion-header" id="${headingId}">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
-                ${questionText}
-              </button>
-            </h2>
-            <div id="${collapseId}" class="accordion-collapse collapse" aria-labelledby="${headingId}" data-bs-parent="#${containerId}">
-              <div class="accordion-body">
-                <p>Details: ${questionText}</p>
-                ${extraContent}
-                <form>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="${section}Question${i}" id="${section}Question${i}OptionA">
-                    <label class="form-check-label" for="${section}Question${i}OptionA">Option A</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="${section}Question${i}" id="${section}Question${i}OptionB">
-                    <label class="form-check-label" for="${section}Question${i}OptionB">Option B</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="${section}Question${i}" id="${section}Question${i}OptionC">
-                    <label class="form-check-label" for="${section}Question${i}OptionC">Option C</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="${section}Question${i}" id="${section}Question${i}OptionD">
-                    <label class="form-check-label" for="${section}Question${i}OptionD">Option D</label>
-                  </div>
-                </form>
-              </div>
-            </div>
-          `;
-          container.appendChild(accordionItem);
+    // QUESTION DATA ARRAYS
+    const quantQuestions = [
+      { question: "If x + 2 = 5, what is the value of x?", options: ["1", "2", "3", "4"], correct: 2 },
+      { question: "Solve for y: 3y = 12.", options: ["3", "4", "6", "12"], correct: 1 },
+      { question: "What is the product of 4 and 6?", options: ["24", "20", "18", "30"], correct: 0 },
+      { question: "If 2x = 10, what is x?", options: ["2", "3", "5", "10"], correct: 2 },
+      { question: "Solve: 10 - 3 = ?", options: ["7", "8", "5", "6"], correct: 0 },
+      { question: "What is 15 divided by 3?", options: ["3", "4", "5", "6"], correct: 2 },
+      { question: "If a = 7, what is a + 3?", options: ["9", "10", "11", "14"], correct: 1 },
+      { question: "Solve: 8 * 2 = ?", options: ["14", "16", "18", "20"], correct: 1 },
+      { question: "What is 9 - 4?", options: ["4", "5", "6", "7"], correct: 1 },
+      { question: "Solve: 12 / 4 = ?", options: ["2", "3", "4", "6"], correct: 1 },
+      { question: "What is the sum of 5 and 8?", options: ["10", "11", "12", "13"], correct: 3 },
+      { question: "If 3x = 15, what is x?", options: ["3", "4", "5", "6"], correct: 2 },
+      { question: "What is 7 x 3?", options: ["10", "18", "21", "24"], correct: 2 },
+      { question: "Solve: 20 - 9 = ?", options: ["10", "11", "12", "13"], correct: 1 },
+      { question: "What is 14 divided by 2?", options: ["6", "7", "8", "9"], correct: 1 },
+      { question: "If 2y = 14, what is y?", options: ["5", "6", "7", "8"], correct: 2 },
+      { question: "Solve: 9 + 6 = ?", options: ["14", "15", "16", "17"], correct: 1 },
+      { question: "What is 10 x 2?", options: ["10", "20", "25", "30"], correct: 1 },
+      { question: "If 16 / 4 = ?", options: ["2", "3", "4", "6"], correct: 2 },
+      { question: "Solve: 11 - 5 = ?", options: ["5", "6", "7", "8"], correct: 1 },
+      { question: "What is the sum of 7 and 7?", options: ["12", "13", "14", "15"], correct: 2 }
+    ];
+
+    const verbalQuestions = [
+      { question: "Which of the following best summarizes the passage about economic trends?", options: ["A focus on growth", "Concerns over recession", "Technological innovation", "Environmental impact"], correct: 1 },
+      { question: "In the passage, what is the author's primary argument regarding leadership?", options: ["The need for transparency", "The importance of delegation", "The value of innovation", "The risks of centralization"], correct: 0 },
+      { question: "What does the passage imply about market competition?", options: ["It is diminishing", "It is intensifying", "It is irrelevant", "It is stabilizing"], correct: 1 },
+      { question: "According to the passage, which factor is most critical for business success?", options: ["Customer service", "Cost reduction", "Innovation", "Risk management"], correct: 2 },
+      { question: "The author suggests that long-term planning is:", options: ["Unnecessary", "Risky", "Essential", "Overrated"], correct: 2 },
+      { question: "What is the tone of the passage?", options: ["Optimistic", "Pessimistic", "Neutral", "Sarcastic"], correct: 2 },
+      { question: "Which statement best reflects the passage's view on technology?", options: ["Technology is overrated", "Technology drives progress", "Technology hinders creativity", "Technology is a temporary trend"], correct: 1 },
+      { question: "What evidence does the author use to support their claim?", options: ["Statistical data", "Anecdotal examples", "Historical trends", "Expert opinions"], correct: 0 },
+      { question: "How does the passage define 'sustainable growth'?", options: ["Rapid expansion", "Balanced development", "Short-term profit", "Aggressive marketing"], correct: 1 },
+      { question: "What is the main purpose of the passage?", options: ["To inform", "To persuade", "To entertain", "To critique"], correct: 0 },
+      { question: "Which of the following best describes the author's perspective on risk?", options: ["Risk should be avoided", "Risk is necessary for innovation", "Risk is irrelevant", "Risk only applies to finance"], correct: 1 },
+      { question: "The passage implies that market trends are:", options: ["Predictable", "Uncertain", "Stable", "Uniform"], correct: 1 },
+      { question: "What does the author suggest about customer behavior?", options: ["Customers are loyal", "Customers are fickle", "Customers are rational", "Customers are easily influenced"], correct: 1 },
+      { question: "Which factor is least emphasized in the passage?", options: ["Innovation", "Risk", "Cost", "Leadership"], correct: 2 },
+      { question: "The phrase 'competitive edge' in the passage most nearly means:", options: ["Market dominance", "Innovative advantage", "High profitability", "Customer satisfaction"], correct: 1 },
+      { question: "According to the passage, what is a common misconception about success?", options: ["It requires hard work", "It happens overnight", "It is achieved through collaboration", "It is solely based on luck"], correct: 1 },
+      { question: "What is the author's stance on globalization?", options: ["It is beneficial", "It is detrimental", "It is inevitable", "It is overrated"], correct: 2 },
+      { question: "Which element does the passage credit with driving change?", options: ["Technology", "Government policy", "Consumer demand", "Economic theory"], correct: 0 },
+      { question: "How does the passage characterize market volatility?", options: ["As a challenge", "As an opportunity", "As a minor issue", "As a predictable cycle"], correct: 0 },
+      { question: "The author uses the term 'innovation' primarily to refer to:", options: ["New products", "New processes", "New ideas", "New markets"], correct: 2 },
+      { question: "What can be inferred about the future based on the passage?", options: ["It will be stable", "It will be uncertain", "It will regress", "It will be easily managed"], correct: 1 },
+      { question: "The main limitation of the study mentioned in the passage is:", options: ["Small sample size", "Short duration", "Lack of funding", "Methodological flaws"], correct: 0 },
+      { question: "What does the passage suggest about the role of leadership in change?", options: ["Leadership is passive", "Leadership is proactive", "Leadership is ineffective", "Leadership is unnecessary"], correct: 1 }
+    ];
+
+    const dataQuestions = [
+      { question: "Given the data set below, what is the average value? Data: [10, 20, 30, 40, 50]", options: ["30", "35", "40", "25"], correct: 0 },
+      { question: "The chart shows a steady increase in sales over 5 years. Which year had the highest growth rate?", options: ["Year 1", "Year 2", "Year 3", "Year 4"], correct: 3 },
+      { question: "Based on the table, what percentage of total revenue came from product A?", options: ["25%", "35%", "45%", "55%"], correct: 1 },
+      { question: "If the ratio of X to Y is 2:3 and X is 20, what is Y?", options: ["25", "30", "35", "40"], correct: 1 },
+      { question: "Multi-Source: Source 1: Sales increased by 10%. Source 2: Costs increased by 5%. What is the net impact on profit?", options: ["Increase", "Decrease", "No change", "Insufficient data"], correct: 0 },
+      { question: "Which of the following best describes the trend in the provided data?", options: ["Upward", "Downward", "Stable", "Fluctuating"], correct: 0 },
+      { question: "From the graph provided, what is the approximate value at the peak?", options: ["50", "60", "70", "80"], correct: 2 },
+      { question: "Based on the data, which product had the highest sales?", options: ["Product A", "Product B", "Product C", "Product D"], correct: 2 },
+      { question: "What is the median value of the data set: [3, 5, 7, 9, 11]?", options: ["5", "7", "9", "11"], correct: 1 },
+      { question: "Multi-Source: Considering Source 1 (customer feedback) and Source 2 (sales data), what can be inferred about product satisfaction?", options: ["High", "Moderate", "Low", "No correlation"], correct: 0 },
+      { question: "What is the difference between the maximum and minimum values in the data: [4, 8, 15, 16, 23]?", options: ["19", "20", "21", "22"], correct: 0 },
+      { question: "Which statement best describes the data trend?", options: ["Linear growth", "Exponential growth", "Cyclical pattern", "Random variation"], correct: 0 },
+      { question: "From the provided statistics, what is the most likely cause for the observed change?", options: ["Market expansion", "Increased competition", "New product launch", "Economic downturn"], correct: 2 },
+      { question: "If the data shows a 20% increase from last year’s 100 units, what is this year's number?", options: ["110", "120", "130", "140"], correct: 1 },
+      { question: "What is the percentage change from 50 to 75?", options: ["25%", "33%", "50%", "75%"], correct: 2 },
+      { question: "Based on the multi-source data, which factor appears to be most influential?", options: ["Market demand", "Cost efficiency", "Brand loyalty", "Product innovation"], correct: 3 },
+      { question: "In the provided table, which quarter had the highest revenue?", options: ["Q1", "Q2", "Q3", "Q4"], correct: 3 },
+      { question: "Multi-Source: With Source 1 showing a decline and Source 2 showing stable performance, what is the overall trend?", options: ["Decline", "Increase", "Stable", "Mixed"], correct: 3 },
+      { question: "What is the interquartile range of the data: [10, 15, 20, 25, 30]?", options: ["5", "10", "15", "20"], correct: 1 },
+      { question: "Which option best explains the discrepancy between two data sources?", options: ["Sampling error", "Measurement error", "Reporting delay", "All of the above"], correct: 3 }
+    ];
+
+    // STATE VARIABLES
+    const totalQuant = quantQuestions.length;
+    const totalVerbal = verbalQuestions.length;
+    const totalData = dataQuestions.length;
+    let currentQuant = 0, currentVerbal = 0, currentData = 0;
+    const quantAnswers = Array(totalQuant).fill(null);
+    const verbalAnswers = Array(totalVerbal).fill(null);
+    const dataAnswers = Array(totalData).fill(null);
+
+    // Helper: Render a question given a container, question object, current index, and section key ("quant", "verbal", "data")
+    function renderQuestion(section, index) {
+      let qData, container;
+      if(section === 'quant') { qData = quantQuestions[index]; container = document.getElementById("questionContainer-quant"); }
+      else if(section === 'verbal') { qData = verbalQuestions[index]; container = document.getElementById("questionContainer-verbal"); }
+      else if(section === 'data') { qData = dataQuestions[index]; container = document.getElementById("questionContainer-data"); }
+      
+      // Build HTML for the question
+      let html = `<h5>Question ${index + 1}: ${qData.question}</h5><form id="${section}-form">`;
+      qData.options.forEach((opt, i) => {
+        const checked = ( (section === 'quant' && quantAnswers[index] === i) ||
+                          (section === 'verbal' && verbalAnswers[index] === i) ||
+                          (section === 'data' && dataAnswers[index] === i) ) ? "checked" : "";
+        html += `
+          <div class="form-check my-2">
+            <input class="form-check-input" type="radio" name="${section}-question" id="${section}-q${index}-opt${i}" value="${i}" ${checked}>
+            <label class="form-check-label option-label" for="${section}-q${index}-opt${i}">${opt}</label>
+          </div>
+        `;
+      });
+      html += `</form>`;
+      container.innerHTML = html;
+
+      // Update navigation button state
+      document.getElementById("prev-" + section).disabled = (index === 0);
+      // For "Next" button, if at the end, change text to "Done" or "Submit Exam" for last section.
+      let nextBtn = document.getElementById("next-" + section);
+      if(section === 'quant' && index === totalQuant - 1) {
+        nextBtn.textContent = "Done";
+      } else if(section === 'verbal' && index === totalVerbal - 1) {
+        nextBtn.textContent = "Done";
+      } else if(section === 'data' && index === totalData - 1) {
+        nextBtn.textContent = "Submit Exam";
+      } else {
+        nextBtn.textContent = "Next";
+      }
+    }
+
+    // Save selected answer from current question for a section
+    function saveAnswer(section, index) {
+      const form = document.querySelector(`#${section}-form`);
+      if(form) {
+        const selected = form.elements[`${section}-question`].value;
+        if(section === 'quant') quantAnswers[index] = selected === "" ? null : parseInt(selected);
+        else if(section === 'verbal') verbalAnswers[index] = selected === "" ? null : parseInt(selected);
+        else if(section === 'data') dataAnswers[index] = selected === "" ? null : parseInt(selected);
+      }
+    }
+
+    // Navigation functions for each section
+    function nextQuestion(section) {
+      let current, total;
+      if(section === 'quant') { current = currentQuant; total = totalQuant; }
+      else if(section === 'verbal') { current = currentVerbal; total = totalVerbal; }
+      else if(section === 'data') { current = currentData; total = totalData; }
+
+      saveAnswer(section, current);
+      if(current < total - 1) {
+        // Move to next question
+        if(section === 'quant') { currentQuant++; renderQuestion('quant', currentQuant); }
+        else if(section === 'verbal') { currentVerbal++; renderQuestion('verbal', currentVerbal); }
+        else if(section === 'data') { currentData++; renderQuestion('data', currentData); }
+      } else {
+        // End of section: switch to next tab or submit exam if Data Insights
+        if(section === 'quant') {
+          // Switch to Verbal tab and reset currentVerbal if needed
+          currentVerbal = 0;
+          renderQuestion('verbal', currentVerbal);
+          new bootstrap.Tab(document.querySelector('#verbal-tab')).show();
+        } else if(section === 'verbal') {
+          currentData = 0;
+          renderQuestion('data', currentData);
+          new bootstrap.Tab(document.querySelector('#data-tab')).show();
+        } else if(section === 'data') {
+          // Last question of Data Insights; submit exam
+          submitExam();
         }
       }
+    }
+
+    function prevQuestion(section) {
+      let current;
+      if(section === 'quant') { current = currentQuant; }
+      else if(section === 'verbal') { current = currentVerbal; }
+      else if(section === 'data') { current = currentData; }
+      if(current > 0) {
+        saveAnswer(section, current);
+        if(section === 'quant') { currentQuant--; renderQuestion('quant', currentQuant); }
+        else if(section === 'verbal') { currentVerbal--; renderQuestion('verbal', currentVerbal); }
+        else if(section === 'data') { currentData--; renderQuestion('data', currentData); }
+      }
+    }
+
+    // Submit exam: compute scores and display results
+    function submitExam() {
+      // Save answer for last question
+      saveAnswer('data', currentData);
+      let correctCount = 0;
+      quantQuestions.forEach((q, i) => { if(quantAnswers[i] == q.correct) correctCount++; });
+      verbalQuestions.forEach((q, i) => { if(verbalAnswers[i] == q.correct) correctCount++; });
+      dataQuestions.forEach((q, i) => { if(dataAnswers[i] == q.correct) correctCount++; });
+      let wrongCount = 64 - correctCount;
       
-      // Generate 21 Quantitative, 23 Verbal, and 20 Data Insights questions
-      generateQuestions('quant', 21, 'accordionQuant');
-      generateQuestions('verbal', 23, 'accordionVerbal');
-      generateQuestions('data', 20, 'accordionData');
+      // Calculate section scores: scale = 60 + 30*(correct/total)
+      const quantScore = 60 + 30 * (quantAnswers.filter((a, i) => a === quantQuestions[i].correct).length / totalQuant);
+      const verbalScore = 60 + 30 * (verbalAnswers.filter((a, i) => a === verbalQuestions[i].correct).length / totalVerbal);
+      const dataScore = 60 + 30 * (dataAnswers.filter((a, i) => a === dataQuestions[i].correct).length / totalData);
+      const avgSectionScore = (quantScore + verbalScore + dataScore) / 3;
+      // Map average (60 to 90) to total score range (205 to 805)
+      let totalScore = 205 + ((avgSectionScore - 60) / 30) * 600;
+      // Round to nearest 5
+      totalScore = Math.round(totalScore / 5) * 5;
+      
+      // Show results
+      document.getElementById("correctCount").textContent = correctCount;
+      document.getElementById("wrongCount").textContent = wrongCount;
+      document.getElementById("totalScore").textContent = totalScore;
+      // Hide exam questions section and display results section
+      document.getElementById("exam-questions").style.display = "none";
+      document.getElementById("resultsSection").style.display = "block";
+    }
+
+    // Event listeners for navigation buttons
+    document.getElementById("next-quant").addEventListener("click", function() { nextQuestion('quant'); });
+    document.getElementById("prev-quant").addEventListener("click", function() { prevQuestion('quant'); });
+    document.getElementById("next-verbal").addEventListener("click", function() { nextQuestion('verbal'); });
+    document.getElementById("prev-verbal").addEventListener("click", function() { prevQuestion('verbal'); });
+    document.getElementById("next-data").addEventListener("click", function() { nextQuestion('data'); });
+    document.getElementById("prev-data").addEventListener("click", function() { prevQuestion('data'); });
+
+    // Initialize first questions for Quantitative section on page load
+    document.addEventListener("DOMContentLoaded", function() {
+      renderQuestion('quant', currentQuant);
     });
   </script>
 </body>
