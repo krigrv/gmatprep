@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GMAT Practice Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .question {
+      margin: 15px 0;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    .question p {
+      margin: 5px 0;
+    }
+    .options label {
+      display: block;
+      margin: 5px 0;
+    }
+    .submit-btn {
+      background-color: #007acc;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .submit-btn:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>GMAT Practice Test</h1>
+      <p><strong>Total Number of Questions:</strong> 64</p>
+      <p><strong>Total Time:</strong> 2 Hours 15 Minutes</p>
+      <p><strong>Overall Scoring Range:</strong> 205–805 (10-point Increment)</p>
+    </header>
+    
+    <!-- Section I: Quantitative Reasoning -->
+    <section class="section" id="quantitative">
+      <h2>Section I: Quantitative Reasoning (QR)</h2>
+      <p><strong>Number of Questions:</strong> 21 &nbsp;&nbsp;&nbsp;
+         <strong>Time Allotted:</strong> 45 Minutes &nbsp;&nbsp;&nbsp;
+         <strong>Scoring Range:</strong> 60–90 (1-point Increment)
+      </p>
+      <form id="qr-form">
+        <!-- Sample Question 1 -->
+        <div class="question">
+          <p><strong>QR 1. Problem Solving:</strong> If 2x + 5 = 17, what is the value of x?</p>
+          <div class="options">
+            <label><input type="radio" name="qr1" value="5"> A) 5</label>
+            <label><input type="radio" name="qr1" value="6"> B) 6</label>
+            <label><input type="radio" name="qr1" value="7"> C) 7</label>
+            <label><input type="radio" name="qr1" value="8"> D) 8</label>
+            <label><input type="radio" name="qr1" value="9"> E) 9</label>
+          </div>
+        </div>
+        
+        <!-- Sample Question 2 (Data Sufficiency) -->
+        <div class="question">
+          <p><strong>QR 2. Data Sufficiency:</strong> Is x > 0? <br>
+             (1) x² = 16<br>
+             (2) x + 4 > 0
+          </p>
+          <div class="options">
+            <label><input type="radio" name="qr2" value="A"> A) Statement (1) alone is sufficient, but statement (2) is not sufficient.</label>
+            <label><input type="radio" name="qr2" value="B"> B) Statement (2) alone is sufficient, but statement (1) is not sufficient.</label>
+            <label><input type="radio" name="qr2" value="C"> C) Both statements together are sufficient.</label>
+            <label><input type="radio" name="qr2" value="D"> D) Each statement alone is sufficient.</label>
+            <label><input type="radio" name="qr2" value="E"> E) Neither statement is sufficient.</label>
+          </div>
+        </div>
+
+        <!-- You can add the remaining 19 QR questions in similar fashion -->
+        <!-- ... -->
+      </form>
+    </section>
+    
+    <!-- Section II: Verbal Reasoning -->
+    <section class="section" id="verbal">
+      <h2>Section II: Verbal Reasoning (VR)</h2>
+      <p><strong>Number of Questions:</strong> 23 &nbsp;&nbsp;&nbsp;
+         <strong>Time Allotted:</strong> 45 Minutes &nbsp;&nbsp;&nbsp;
+         <strong>Scoring Range:</strong> 60–90 (1-point Increment)
+      </p>
+      <form id="vr-form">
+        <!-- Sample Question 1 (Sentence Correction) -->
+        <div class="question">
+          <p><strong>VR 1. Sentence Correction:</strong> “The new policy, which was implemented last month, <em>have significantly improved employee productivity</em>.”</p>
+          <div class="options">
+            <label><input type="radio" name="vr1" value="A"> A) have significantly improved employee productivity</label>
+            <label><input type="radio" name="vr1" value="B"> B) has significantly improved employee productivity</label>
+            <label><input type="radio" name="vr1" value="C"> C) significantly improves employee productivity</label>
+            <label><input type="radio" name="vr1" value="D"> D) significantly improved employee productivity</label>
+            <label><input type="radio" name="vr1" value="E"> E) has been significantly improving employee productivity</label>
+          </div>
+        </div>
+        
+        <!-- You can add the remaining 22 VR questions in similar fashion -->
+        <!-- ... -->
+      </form>
+    </section>
+    
+    <!-- Section III: Data Insights -->
+    <section class="section" id="data-insights">
+      <h2>Section III: Data Insights (DI)</h2>
+      <p><strong>Number of Questions:</strong> 20 &nbsp;&nbsp;&nbsp;
+         <strong>Time Allotted:</strong> 45 Minutes &nbsp;&nbsp;&nbsp;
+         <strong>Scoring Range:</strong> 60–90 (1-point Increment)
+      </p>
+      <form id="di-form">
+        <!-- Sample DI Question based on a table -->
+        <div class="question">
+          <p><strong>DI 1.</strong> Refer to the table below showing Company Y’s quarterly revenues (in millions USD) over two consecutive years:</p>
+          <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Quarter</th>
+                <th>Year 1</th>
+                <th>Year 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Q1</td>
+                <td>50</td>
+                <td>55</td>
+              </tr>
+              <tr>
+                <td>Q2</td>
+                <td>60</td>
+                <td>65</td>
+              </tr>
+              <tr>
+                <td>Q3</td>
+                <td>70</td>
+                <td>75</td>
+              </tr>
+              <tr>
+                <td>Q4</td>
+                <td>80</td>
+                <td>85</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>What is the total revenue for Company Y in Year 1?</p>
+          <div class="options">
+            <label><input type="radio" name="di1" value="A"> A) 250</label>
+            <label><input type="radio" name="di1" value="B"> B) 260</label>
+            <label><input type="radio" name="di1" value="C"> C) 270</label>
+            <label><input type="radio" name="di1" value="D"> D) 280</label>
+            <label><input type="radio" name="di1" value="E"> E) 290</label>
+          </div>
+        </div>
+        
+        <!-- You can add the remaining 19 DI questions similarly -->
+        <!-- ... -->
+      </form>
+    </section>
+    
+    <footer>
+      <p><em>Please review your answers before submitting.</em></p>
+      <!-- (Optional: You could add a “Submit” button here and implement JavaScript to process answers) -->
+      <button class="submit-btn" onclick="alert('This is a practice test. Please review your answers.');">Submit Answers</button>
+    </footer>
+  </div>
+</body>
+</html>
