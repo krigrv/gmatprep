@@ -3,66 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GMAT Focus Edition Exam Simulation</title>
+  <title>GMAT Focus Edition Exam for Sargam Aggarwal</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
+    /* General Body Styling */
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    /* Navbar Styling */
+    .navbar {
+      background-color: #007bff;
+    }
+    .navbar-brand {
+      color: #fff !important;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    /* Hero Section */
+    #overview {
+      background: linear-gradient(135deg, #007bff 0%, #00aaff 100%);
+      color: #fff;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    #overview h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    /* Section Containers */
+    .section-container {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+    }
+    .active-section {
+      display: block;
+    }
+    .section-container:not(.active-section) {
+      display: none;
+    }
+    /* Timer Section */
+    #timerSection {
+      background-color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+    }
+    /* Question Container */
+    .question-container {
+      min-height: 200px;
+    }
+    /* Review Cards */
+    .review-card {
+      margin-bottom: 1rem;
+    }
+    .review-card h6 {
+      font-weight: 600;
+    }
+    /* Score Styling */
     .score-number {
       font-size: 2.5rem;
       font-weight: bold;
     }
-    .question-container {
-      min-height: 250px;
-      margin-bottom: 20px;
-    }
-    .option-label {
-      cursor: pointer;
-    }
-    .review-card {
-      margin-bottom: 1rem;
-    }
-    .section-container {
-      display: none;
-    }
-    .active-section {
-      display: block;
+    /* Preserve Formatting in Questions */
+    h5 {
+      white-space: pre-line;
     }
   </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
   <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand" href="#">GMAT Exam Simulator</a>
+      <a class="navbar-brand" href="#">GMAT Focus Edition Exam for Sargam Aggarwal</a>
     </div>
   </nav>
 
   <!-- Main Content -->
   <main class="container my-5">
-    <!-- Overview Section -->
-    <section id="overview" class="mb-5">
-      <h1 class="mb-4">Exam Overview</h1>
-      <p>
-        This simulation tests your skills across the GMAT Focus Edition sections: Quantitative Reasoning, Verbal Reasoning, and Data Insights.
+    <!-- Exam Overview (Hero Section) -->
+    <section id="overview" class="mb-5 text-center">
+      <h1 class="mb-3">Exam Overview</h1>
+      <p class="lead">
+        This exam is structured for the GMAT Focus Edition and assesses your skills in Quantitative Reasoning, Verbal Reasoning, and Data Insights.  
+        Each section is allotted 45 minutes. There are no Sentence Correction or Geometry questions; instead, expect Multi-Source Reasoning items in Data Insights.
       </p>
     </section>
 
     <!-- Start Exam Section -->
-    <section id="startSection" class="mb-5">
-      <h2 class="mb-4">Ready to Start Your Exam?</h2>
-      <button id="startExamBtn" class="btn btn-success">Start Exam</button>
+    <section id="startSection" class="mb-5 text-center">
+      <h2 class="mb-4">Ready to Begin?</h2>
+      <button id="startExamBtn" class="btn btn-success btn-lg">Are you Ready? Start Exam</button>
     </section>
 
     <!-- Timer and End Session Section -->
-    <div id="timerSection" class="d-flex justify-content-between align-items-center mb-3" style="display:none;">
+    <div id="timerSection" class="d-flex justify-content-between align-items-center mb-4" style="display:none;">
       <div id="timerDisplay" class="fw-bold">Time Remaining: 45:00</div>
       <button id="endSessionBtn" class="btn btn-danger btn-sm">End Session Early</button>
     </div>
 
-    <!-- SECTION: Quantitative Reasoning -->
-    <section id="section-quant" class="section-container">
-      <h2 class="mb-3">Section: Quantitative Reasoning</h2>
-      <div id="progress-quant" class="text-end mb-2"></div>
+    <!-- SECTION: Quantitative Reasoning (21 Questions) -->
+    <section id="section-quant" class="section-container active-section">
+      <h2 class="mb-3">Quantitative Reasoning (21 Questions)</h2>
+      <div id="progress-quant" class="text-end mb-2 text-muted"></div>
       <div id="questionContainer-quant" class="question-container"></div>
       <div class="d-flex justify-content-between">
         <button id="prev-quant" class="btn btn-secondary" disabled>Previous</button>
@@ -70,10 +120,10 @@
       </div>
     </section>
 
-    <!-- SECTION: Verbal Reasoning -->
+    <!-- SECTION: Verbal Reasoning (23 Questions) -->
     <section id="section-verbal" class="section-container">
-      <h2 class="mb-3">Section: Verbal Reasoning</h2>
-      <div id="progress-verbal" class="text-end mb-2"></div>
+      <h2 class="mb-3">Verbal Reasoning (23 Questions)</h2>
+      <div id="progress-verbal" class="text-end mb-2 text-muted"></div>
       <div id="questionContainer-verbal" class="question-container"></div>
       <div class="d-flex justify-content-between">
         <button id="prev-verbal" class="btn btn-secondary" disabled>Previous</button>
@@ -81,10 +131,10 @@
       </div>
     </section>
 
-    <!-- SECTION: Data Insights -->
+    <!-- SECTION: Data Insights (20 Questions) -->
     <section id="section-data" class="section-container">
-      <h2 class="mb-3">Section: Data Insights</h2>
-      <div id="progress-data" class="text-end mb-2"></div>
+      <h2 class="mb-3">Data Insights (20 Questions)</h2>
+      <div id="progress-data" class="text-end mb-2 text-muted"></div>
       <div id="questionContainer-data" class="question-container"></div>
       <div class="d-flex justify-content-between">
         <button id="prev-data" class="btn btn-secondary" disabled>Previous</button>
@@ -93,8 +143,8 @@
     </section>
 
     <!-- Results Section -->
-    <section id="resultsSection" class="mb-5" style="display:none;">
-      <h2 class="mb-4">Exam Results</h2>
+    <section id="resultsSection" class="section-container" style="display:none;">
+      <h2 class="mb-4 text-center">Exam Results</h2>
       <div class="table-responsive">
         <table class="table table-bordered text-center">
           <thead class="table-light">
@@ -114,6 +164,46 @@
         </table>
       </div>
     </section>
+
+    <!-- Answer Review Section -->
+    <section id="reviewSection" class="section-container" style="display:none;">
+      <h2 class="mb-4">Answer Review</h2>
+      <div class="accordion" id="reviewAccordion">
+        <!-- Quantitative Review -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="reviewHeadingQuant">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#reviewCollapseQuant" aria-expanded="true" aria-controls="reviewCollapseQuant">
+              Quantitative Review
+            </button>
+          </h2>
+          <div id="reviewCollapseQuant" class="accordion-collapse collapse show" aria-labelledby="reviewHeadingQuant" data-bs-parent="#reviewAccordion">
+            <div class="accordion-body" id="reviewQuant"></div>
+          </div>
+        </div>
+        <!-- Verbal Review -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="reviewHeadingVerbal">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#reviewCollapseVerbal" aria-expanded="false" aria-controls="reviewCollapseVerbal">
+              Verbal Review
+            </button>
+          </h2>
+          <div id="reviewCollapseVerbal" class="accordion-collapse collapse" aria-labelledby="reviewHeadingVerbal" data-bs-parent="#reviewAccordion">
+            <div class="accordion-body" id="reviewVerbal"></div>
+          </div>
+        </div>
+        <!-- Data Insights Review -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="reviewHeadingData">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#reviewCollapseData" aria-expanded="false" aria-controls="reviewCollapseData">
+              Data Insights Review
+            </button>
+          </h2>
+          <div id="reviewCollapseData" class="accordion-collapse collapse" aria-labelledby="reviewHeadingData" data-bs-parent="#reviewAccordion">
+            <div class="accordion-body" id="reviewData"></div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -125,39 +215,752 @@
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript: Question Data, Navigation, Section Timers, and Review Generation -->
   <script>
-    /***************
-     * QUESTIONS DATA
-     ***************/
+    /**********************
+     * QUESTION DATA ARRAYS
+     **********************/
+    // Quantitative Reasoning (21 Tough Questions)
     const quantQuestions = [
-      { question: "If 2x + 3 = 15, what is x?", options: ["4", "5", "6", "7"], correct: 1 },
-      { question: "A train travels 90 km/h. How far will it travel in 1.5 hours?", options: ["135 km", "140 km", "120 km", "125 km"], correct: 0 },
-      /* Add remaining 19 Quant questions */
+      {
+        question: "If a certain wheel turns at a constant rate of x revolutions per minute, how many revolutions will the wheel make in k seconds?",
+        options: ["60kx", "kx", "x÷k", "x÷(60k)", "kx÷60"],
+        correct: 4
+      },
+      {
+        question: "If 5x - 7 = 3x + 9, what is the value of x?",
+        options: ["6", "7", "8", "9", "10"],
+        correct: 2
+      },
+      {
+        question: "The sum of two numbers is 20 and their difference is 4. What is their product?",
+        options: ["96", "104", "112", "120", "128"],
+        correct: 0
+      },
+      {
+        question: "If 4a = 2b and a + b = 18, what is the value of a?",
+        options: ["4", "5", "6", "7", "8"],
+        correct: 2
+      },
+      {
+        question: "If 7y - 2 = 3y + 14, what is the value of y?",
+        options: ["2", "3", "4", "5", "6"],
+        correct: 2
+      },
+      {
+        question: "If 2(x - 3) = 4x + 6, what is x?",
+        options: ["-6", "-5", "-4", "6", "7"],
+        correct: 0
+      },
+      {
+        question: "What is the value of (2x)² when x = 3?",
+        options: ["18", "24", "30", "36", "42"],
+        correct: 3
+      },
+      {
+        question: "If 3(x + 2) = 2(2x + 1), what is x?",
+        options: ["2", "3", "4", "5", "6"],
+        correct: 2
+      },
+      {
+        question: "Solve: 6/(x + 1) = 2. What is x?",
+        options: ["1", "2", "3", "4", "0"],
+        correct: 1
+      },
+      {
+        question: "If 5x + 3 = 2(2x + 4) + x, what is x?",
+        options: ["x = 0", "x = 1", "No solution", "Infinite solutions", "x = 5"],
+        correct: 2
+      },
+      {
+        question: "If x/2 = 3/4, what is x?",
+        options: ["1", "1.5", "2", "2.5", "3"],
+        correct: 1
+      },
+      {
+        question: "If (x + 1)/(x - 1) = 2, what is x?",
+        options: ["2", "3", "4", "5", "6"],
+        correct: 1
+      },
+      {
+        question: "Solve: x² - 5x + 6 = 0. What is the sum of its solutions?",
+        options: ["3", "4", "5", "6", "7"],
+        correct: 2
+      },
+      {
+        question: "If 2^(x + 1) = 16, what is x?",
+        options: ["2", "3", "4", "5", "6"],
+        correct: 1
+      },
+      {
+        question: "If log₂(x) = 5, what is x?",
+        options: ["16", "32", "64", "128", "256"],
+        correct: 1
+      },
+      {
+        question: "Solve: 3^x = 81. What is x?",
+        options: ["3", "4", "5", "6", "7"],
+        correct: 1
+      },
+      {
+        question: "If (x - 2)(x + 3) = 0, what is the product of its solutions?",
+        options: ["-6", "6", "0", "1", "-1"],
+        correct: 0
+      },
+      {
+        question: "Solve for x: 2x + 3 = 3x - 4.",
+        options: ["6", "7", "8", "9", "10"],
+        correct: 1
+      },
+      {
+        question: "If 1/x = 2, what is x?",
+        options: ["0.5", "1", "2", "3", "4"],
+        correct: 0
+      },
+      {
+        question: "Solve: 4(x - 1) = 2x + 6.",
+        options: ["4", "5", "6", "7", "8"],
+        correct: 1
+      },
+      {
+        question: "If 3(x + 2) = 2x + 9, what is x?",
+        options: ["2", "3", "4", "5", "6"],
+        correct: 1
+      }
     ];
 
+    // Verbal Reasoning (23 Tough Questions)
     const verbalQuestions = [
-      { question: "Which of the following best describes the author's argument?", options: ["Innovation is risky.", "Innovation is critical.", "Innovation is easy.", "Innovation has no impact."], correct: 1 },
-      { question: "What is the primary challenge of renewable energy mentioned?", options: ["High cost", "Low demand", "Lack of technology", "High investment"], correct: 3 },
-      /* Add remaining 21 Verbal questions */
+      {
+        question: "Reading Comprehension:\n\nDirections: Read the passage carefully and answer the question.\n\nPassage:\n\"Schools expect textbooks to be a valuable source of information for students. However, my research suggests that textbooks addressing the place of Native Americans within U.S. history often distort facts to fit a particular cultural narrative. For instance, some textbooks portray settlers as more humane and skilled than Native Americans, thereby reinforcing stereotypes and depreciating Native cultures. Critics argue that such portrayals mislead students about the complexities of history.\"\n\nQuestion:\nWhich of the following would most logically be the topic of the paragraph immediately following the passage?",
+        options: [
+          "Specific ways to evaluate the biases of United States history textbooks",
+          "The centrality of the teacher's role in U.S. history courses",
+          "Nontraditional methods of teaching U.S. history",
+          "The contributions of European immigrants to U.S. development",
+          "Ways in which parents influence children's political attitudes"
+        ],
+        correct: 0
+      },
+      {
+        question: "Critical Reasoning:\n\nDirections: Select the best answer.\n\nQuestion:\nMall Owner: Our mall’s occupancy rate is so low that we are barely making a profit. We cannot raise rents due to the high risk of losing tenants. However, a fully occupied mall costs nearly the same to operate as one with vacant spaces. Therefore, to boost profits, we must sign up new tenants.\n",
+        options: [
+          "The mall’s operating costs could be reduced by consolidating current spaces.",
+          "The mall is located in an area with exceptionally high utility costs.",
+          "Occupancy has been low but stable for several years.",
+          "Tenants tend to leave only after significant rent hikes.",
+          "None of the existing tenants plan to expand their space."
+        ],
+        correct: 0
+      },
+      {
+        question: "Critical Reasoning:\n\nDirections: Select the best answer.\n\nQuestion:\nIn an argument about reducing carbon emissions, the author claims that increasing public transportation usage will lower traffic congestion and reduce accidents. Which of the following, if true, most seriously weakens the argument?",
+        options: [
+          "Public transportation systems are often at full capacity, limiting additional riders.",
+          "Traffic congestion is primarily caused by commercial freight rather than private vehicles.",
+          "Studies show no significant link between transit usage and accident rates.",
+          "Overcrowded transit systems can lead to delays and inefficiencies.",
+          "Investments in public transit have historically had little impact on congestion."
+        ],
+        correct: 0
+      },
+      {
+        question: "Reading Comprehension:\n\nDirections: Read the passage and then answer the question.\n\nPassage:\n\"Digital marketing has evolved rapidly over the past decade. Traditional marketing relied on broad-reaching media, while digital marketing leverages data analytics, social media, and targeted advertising. This shift, driven by technological innovations and changing consumer behaviors, has transformed how companies engage with audiences.\"\n\nQuestion:\nWhich of the following best captures the main idea of the passage?",
+        options: [
+          "Social media has transformed advertising.",
+          "Digital marketing relies heavily on data analytics.",
+          "Traditional marketing methods are now obsolete.",
+          "Technological innovation and consumer behavior drive digital marketing evolution.",
+          "Digital strategies differ greatly across industries."
+        ],
+        correct: 3
+      },
+      {
+        question: "Critical Reasoning:\n\nDirections: Select the best answer.\n\nQuestion:\nA study claims that implementing a four-day workweek increases employee productivity. Which of the following, if true, most seriously undermines this claim?",
+        options: [
+          "The study did not account for industry differences.",
+          "Employees reported higher job satisfaction under a four-day workweek.",
+          "Productivity was measured only during a short-term pilot.",
+          "Most surveyed companies already offered flexible hours.",
+          "The study's sample size was very small."
+        ],
+        correct: 2
+      },
+      {
+        question: "Reading Comprehension:\n\nDirections: Read the passage and answer the question.\n\nPassage:\n\"Urban development increasingly features mixed-use projects that combine residential, commercial, and recreational spaces. Proponents argue these developments reduce urban sprawl, promote sustainability, and foster vibrant communities.\"\n\nQuestion:\nWhich detail best supports the claim that mixed-use projects promote sustainable growth?",
+        options: [
+          "They reduce urban sprawl.",
+          "They offer nearby amenities.",
+          "They typically increase property values.",
+          "They encourage public transit use.",
+          "They foster community interaction."
+        ],
+        correct: 0
+      },
+      {
+        question: "Critical Reasoning:\n\nDirections: Choose the best answer.\n\nQuestion:\nAn argument states that online learning platforms will replace traditional classrooms within a decade. Which of the following, if true, most seriously weakens the argument?",
+        options: [
+          "A significant percentage of students prefer face-to-face learning.",
+          "Technology adoption rates vary greatly by region.",
+          "Online platforms require substantial technology investments.",
+          "Traditional classrooms provide essential social experiences.",
+          "Many educators resist changing teaching methods."
+        ],
+        correct: 3
+      },
+      {
+        question: "Reading Comprehension:\n\nDirections: Read the passage and then answer the question.\n\nPassage:\n\"A leading company attributes its success to rapidly incorporating customer feedback into product development, enabling it to adapt quickly and maintain a competitive edge in a fast-changing market.\"\n\nQuestion:\nWhich of the following best describes the company’s primary strategy?",
+        options: [
+          "Diversifying its product line.",
+          "Investing heavily in R&D.",
+          "Streamlining operations.",
+          "Leveraging customer feedback for innovation.",
+          "Outsourcing non-core functions."
+        ],
+        correct: 3
+      },
+      {
+        question: "Critical Reasoning:\n\nDirections: Select the best answer.\n\nQuestion:\nAn argument suggests that banning single-use plastics will greatly reduce environmental pollution. Which of the following, if true, most seriously weakens the argument?",
+        options: [
+          "Alternatives to single-use plastics are limited.",
+          "A ban may lead to increased use of paper products, which also harm the environment.",
+          "Plastic production is only a small part of overall pollution.",
+          "Consumers may switch to equally harmful products.",
+          "A ban could negatively impact small businesses."
+        ],
+        correct: 2
+      },
+      {
+        question: "Reading Comprehension:\n\nDirections: Read the passage and answer the question.\n\nPassage:\n\"A historical analysis shows that grassroots social movements were key in driving political reforms. Despite economic pressures, the momentum from these movements led to significant changes in policy.\" \n\nQuestion:\nWhich statement best encapsulates the author’s perspective?",
+        options: [
+          "Economic factors were the primary drivers of reform.",
+          "Social movements were crucial to political reform.",
+          "Reforms were a natural outcome of cultural shifts.",
+          "The reforms were superficial.",
+          "Foreign influences primarily shaped the reforms."
+        ],
+        correct: 1
+      },
+      {
+        question: "Critical Reasoning:\n\nDirections: Select the best answer.\n\nQuestion:\nAn argument states that reducing working hours will improve employee mental health. Which of the following, if true, most strongly supports the argument?",
+        options: [
+          "Studies show a correlation between long hours and stress.",
+          "Companies with shorter workweeks report lower turnover.",
+          "Employees report better work-life balance with shorter weeks.",
+          "Reduced hours have led to measurable productivity gains.",
+          "All of the above."
+        ],
+        correct: 4
+      },
+      {
+        question: "Reading Comprehension:\n\nDirections: Read the passage and then answer the question.\n\nPassage:\n\"Globalization has profound effects on local cultures. While it offers economic opportunities, it also raises concerns about the erosion of cultural diversity as global homogenization increases.\" \n\nQuestion:\nWhich of the following best reflects the author’s primary concern?",
+        options: [
+          "Loss of cultural diversity.",
+          "Economic benefits of globalization.",
+          "Rapid spread of technology.",
+          "Standardization of cultural practices.",
+          "Political impact of global integration."
+        ],
+        correct: 0
+      },
+      {
+        question: "Critical Reasoning:\n\nDirections: Select the best answer.\n\nQuestion:\nAn article argues that increased government spending on education will lead to long-term economic growth. Which of the following, if true, most undermines this argument?",
+        options: [
+          "Countries with higher education spending do not consistently have higher growth.",
+          "Developed nations already invest optimally in education.",
+          "Private investment in education has been declining.",
+          "Economic growth depends on multiple factors.",
+          "Tax increases needed for higher spending could stifle growth."
+        ],
+        correct: 0
+      },
+      {
+        question: "Reading Comprehension:\n\nDirections: Read the passage and answer the question.\n\nPassage:\n\"A new theory in behavioral economics suggests that emotional factors significantly influence economic decisions, challenging traditional models that assume complete rationality.\" \n\nQuestion:\nWhich of the following best summarizes the theory’s main claim?",
+        options: [
+          "Human decision-making is entirely rational.",
+          "Emotional factors significantly influence decisions.",
+          "Market trends are driven solely by probabilities.",
+          "Traditional models ignore the complexity of human behavior.",
+          "Economic outcomes are unpredictable due to irrationality."
+        ],
+        correct: 1
+      },
+      {
+        question: "Critical Reasoning:\n\nDirections: Select the best answer.\n\nQuestion:\nAn author claims that online education will become the standard mode of learning. Which of the following, if true, most strongly supports this claim?",
+        options: [
+          "Traditional education costs are rising rapidly.",
+          "Enrollment in online platforms has grown exponentially.",
+          "Technological advances have made remote learning accessible.",
+          "Prestigious universities offer fully online degrees.",
+          "All of the above."
+        ],
+        correct: 4
+      },
+      {
+        question: "Reading Comprehension:\n\nDirections: Read the passage and answer the question.\n\nPassage:\n\"Automation has reshaped modern industries. While it increases productivity, it also raises concerns about job displacement and the widening gap between skilled and unskilled workers.\" \n\nQuestion:\nWhich of the following best expresses the primary concern in the passage?",
+        options: [
+          "Mass unemployment due to automation.",
+          "Exaggerated benefits of automation.",
+          "Need for extensive worker retraining.",
+          "Widening gap between skilled and unskilled labor.",
+          "Unpredictable overall impact of automation."
+        ],
+        correct: 3
+      },
+      {
+        question: "Critical Reasoning:\n\nDirections: Select the best answer.\n\nQuestion:\nAn argument asserts that increasing the minimum wage will reduce poverty. Which of the following, if true, most seriously weakens the argument?",
+        options: [
+          "A higher minimum wage could lead to job losses among low-skilled workers.",
+          "Poverty is influenced by multiple socioeconomic factors.",
+          "Minimum wage increases have little effect on spending.",
+          "The minimum wage has not kept pace with inflation.",
+          "There is a risk of increased automation in response to higher wages."
+        ],
+        correct: 0
+      },
+      {
+        question: "Reading Comprehension:\n\nDirections: Read the passage and choose the answer that best reflects the author’s viewpoint.\n\nPassage:\n\"Art is more than a luxury; it reflects and challenges societal norms. Even as art becomes commercialized, its role as a medium for social critique remains vital.\" \n\nQuestion:\nWhich of the following best reflects the author’s viewpoint?",
+        options: [
+          "Art is an essential expression of cultural identity.",
+          "Commercialization diminishes art’s true value.",
+          "Art serves as a critical reflection of societal issues.",
+          "Modern technology undermines traditional art forms.",
+          "Art should be preserved purely as a historical record."
+        ],
+        correct: 2
+      },
+      {
+        question: "Critical Reasoning:\n\nDirections: Select the best answer.\n\nQuestion:\nAn editorial argues that increased government spending on education will lead to long-term economic growth. Which of the following, if true, most undermines the argument?",
+        options: [
+          "Countries with higher education spending do not consistently experience higher growth rates.",
+          "Many developed nations are already investing optimally in education.",
+          "Private investment in education has been declining.",
+          "Economic growth depends on multiple factors besides education spending.",
+          "Tax increases required to fund higher spending could stifle growth."
+        ],
+        correct: 0
+      },
+      {
+        question: "Reading Comprehension:\n\nDirections: Read the passage and answer the question.\n\nPassage:\n\"A study on climate change outlines several mitigation strategies. Among these, carbon capture and storage (CCS) is identified as having the potential to significantly lower CO₂ emissions despite its high cost, making it both controversial and promising.\" \n\nQuestion:\nWhich strategy is described as having the greatest potential impact on reducing CO₂ levels?",
+        options: [
+          "Adoption of renewable energy.",
+          "Large-scale reforestation.",
+          "Implementation of carbon capture and storage.",
+          "Improving energy efficiency.",
+          "Expanding public transportation."
+        ],
+        correct: 2
+      },
+      {
+        question: "Critical Reasoning:\n\nDirections: Select the best answer.\n\nQuestion:\nAn argument posits that lowering tariffs will boost international trade. Which of the following, if true, most seriously weakens the argument?",
+        options: [
+          "Lower tariffs could lead to a significant trade deficit.",
+          "Domestic industries might suffer from increased foreign competition.",
+          "Historical data show that lower tariffs have not led to substantial trade growth.",
+          "Consumers benefit from lower prices when tariffs are reduced.",
+          "Trade agreements require reforms beyond tariff reductions."
+        ],
+        correct: 2
+      },
+      {
+        question: "Reading Comprehension:\n\nDirections: Read the passage and answer the question.\n\nPassage:\n\"A study on meditation reveals that regular practice leads to a moderate decrease in stress, particularly in high-pressure environments, although the benefits vary among individuals.\" \n\nQuestion:\nWhich of the following best summarizes the study’s findings?",
+        options: [
+          "Meditation significantly reduces stress in high-pressure jobs.",
+          "Regular meditation leads to a moderate decrease in perceived stress.",
+          "There is no significant correlation between meditation and stress reduction.",
+          "The benefits of meditation are only temporary.",
+          "The impact of meditation on stress varies widely."
+        ],
+        correct: 1
+      },
+      {
+        question: "Critical Reasoning:\n\nDirections: Select the best answer.\n\nQuestion:\nAn author claims that online education will become the standard mode of learning. Which of the following, if true, most strongly supports this claim?",
+        options: [
+          "The cost of traditional education is rising rapidly.",
+          "Enrollment in online education platforms has grown exponentially.",
+          "Technological advances have made remote learning more accessible.",
+          "Prestigious universities now offer fully online degrees.",
+          "All of the above."
+        ],
+        correct: 4
+      }
     ];
 
+    // Data Insights (20 Tough Questions)
     const dataQuestions = [
-      { question: "Which month saw the highest revenue growth?", options: ["January", "March", "June", "April"], correct: 1 },
-      { question: "What is the average revenue across products?", options: ["$12,000", "$15,000", "$10,000", "$13,000"], correct: 0 },
-      /* Add remaining 18 Data questions */
+      {
+        question: "Data Sufficiency:\n\nDirections: Determine whether the following statements are sufficient to answer the question.\n\nQuestion:\nWhat is the monthly rent for an apartment?\n\n(1) The monthly rent per person for 4 people sharing the apartment is $375.\n(2) The monthly rent per person for 4 people is $125 less than that for 3 people sharing the apartment.",
+        options: [
+          "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+          "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+          "Both statements together are sufficient, but neither alone is sufficient.",
+          "Each statement alone is sufficient.",
+          "Statements together are not sufficient."
+        ],
+        correct: 0
+      },
+      {
+        question: "Multi-Source Reasoning:\n\nDirections: Using the information from the sources below, answer the question.\n\nSource A: A company’s quarterly revenue increased by 15%.\nSource B: The company’s profit margin decreased by 5%.\n\nQuestion:\nWhat can be inferred about the company’s performance?",
+        options: [
+          "Sales improved relative to costs.",
+          "Expenses increased disproportionately to revenue.",
+          "The company is experiencing operational challenges.",
+          "Revenue increased while profit margins declined.",
+          "No clear inference can be drawn."
+        ],
+        correct: 3
+      },
+      {
+        question: "Table Analysis:\n\nDirections: Refer to the following data table showing monthly production (in units) for three factories:\nFactory A: 100, 120, 140\nFactory B: 90, 110, 130\nFactory C: 80, 105, 125\n\nQuestion:\nWhat is the average production of Factory B?",
+        options: ["110", "115", "120", "125", "130"],
+        correct: 0
+      },
+      {
+        question: "Graphics Interpretation:\n\nDirections: A bar chart displays quarterly revenue for a company: Q1: $200K, Q2: $250K, Q3: $300K, Q4: $350K.\n\nQuestion:\nWhich quarter had the highest percentage increase from the previous quarter?",
+        options: ["Q1", "Q2", "Q3", "Q4", "All quarters increased equally"],
+        correct: 1
+      },
+      {
+        question: "Two-Part Analysis:\n\nDirections: A survey shows that 60% of respondents prefer Product X over Product Y. If 40% of those preferring Product Y switch to Product X after a price drop, what is the new percentage preference for Product X?",
+        options: ["60%", "64%", "68%", "72%", "76%"],
+        correct: 4
+      },
+      {
+        question: "Data Interpretation:\n\nDirections: A table shows monthly sales: January: 500, February: 450, March: 550.\n\nQuestion:\nWhat is the average monthly sale?",
+        options: ["500", "525", "550", "575", "600"],
+        correct: 0
+      },
+      {
+        question: "Multi-Source Reasoning:\n\nDirections: Source A: Customer satisfaction increased by 10% last quarter.\nSource B: Product return rates decreased by 15% last quarter.\n\nQuestion:\nWhat is the most likely outcome of these changes?",
+        options: [
+          "Improved product quality led to higher satisfaction.",
+          "Decreased returns directly boosted satisfaction.",
+          "Overall, the service quality improved.",
+          "Product improvements resulted in both fewer returns and higher satisfaction.",
+          "No clear conclusion can be drawn."
+        ],
+        correct: 3
+      },
+      {
+        question: "Table Analysis:\n\nDirections: A table lists quarterly earnings: Q1: $1M, Q2: $1.2M, Q3: $1.5M, Q4: $1.8M.\n\nQuestion:\nWhat is the total annual earning?",
+        options: ["$5M", "$5.5M", "$6M", "$6.5M", "$7M"],
+        correct: 2
+      },
+      {
+        question: "Graphics Interpretation:\n\nDirections: A line graph shows monthly growth percentages: 2%, 4%, 6%, 8%, 10%, 12%.\n\nQuestion:\nIn which month did the growth rate increase by the largest absolute amount?",
+        options: ["Month 1", "Month 2", "Month 3", "Month 4", "Month 5"],
+        correct: 1
+      },
+      {
+        question: "Two-Part Analysis:\n\nDirections: A retailer reports that a 10% price drop results in a 25% increase in units sold. If the original price was $80 and 400 units were sold, what is the new revenue?",
+        options: ["$34,000", "$35,000", "$36,000", "$37,000", "$38,000"],
+        correct: 2
+      },
+      {
+        question: "Data Sufficiency:\n\nDirections: Determine whether the following statements are sufficient to answer the question: What is the cost of an item?\n\n(1) The item is sold at a 20% discount from its original price of $50.\n(2) The sale price is $40.\n",
+        options: [
+          "Statement (1) ALONE is sufficient, but (2) is not.",
+          "Statement (2) ALONE is sufficient, but (1) is not.",
+          "Both statements together are sufficient, but neither alone is sufficient.",
+          "Each statement alone is sufficient.",
+          "Statements together are not sufficient."
+        ],
+        correct: 1
+      },
+      {
+        question: "Multi-Source Reasoning:\n\nDirections: Source A: A survey indicates that 80% of respondents use social media daily.\nSource B: Another survey shows that 50% of respondents prefer email for professional communication.\n\nQuestion:\nWhich of the following is a reasonable conclusion?",
+        options: [
+          "Most people use both social media and email regularly.",
+          "Social media is more popular overall than email.",
+          "Email is preferred for professional communication despite lower overall usage.",
+          "Social media usage has no impact on professional preferences.",
+          "Insufficient data to draw a conclusion."
+        ],
+        correct: 2
+      },
+      {
+        question: "Table Analysis:\n\nDirections: A table presents weekly sales (in thousands): Week 1: 20, Week 2: 25, Week 3: 30, Week 4: 35.\n\nQuestion:\nWhat is the percentage increase in sales from Week 1 to Week 4?",
+        options: ["25%", "50%", "75%", "100%", "125%"],
+        correct: 1
+      },
+      {
+        question: "Graphics Interpretation:\n\nDirections: A pie chart shows budget allocation: 40% research, 30% development, 20% marketing, 10% administration. If the total budget is $1,000,000, how much is allocated to marketing?",
+        options: ["$100,000", "$150,000", "$200,000", "$250,000", "$300,000"],
+        correct: 2
+      },
+      {
+        question: "Two-Part Analysis:\n\nDirections: A company reports that its customer base grew by 20% and revenue grew by 10% last year. If last year’s revenue was $5,000,000, what is the current revenue?",
+        options: ["$5,000,000", "$5,250,000", "$5,500,000", "$5,750,000", "$6,000,000"],
+        correct: 2
+      },
+      {
+        question: "Data Interpretation:\n\nDirections: A chart shows daily production for a week (in units): Monday: 150, Tuesday: 180, Wednesday: 210, Thursday: 240, Friday: 270.\n\nQuestion:\nWhat is the average production per day?",
+        options: ["180", "200", "210", "220", "240"],
+        correct: 2
+      },
+      {
+        question: "Multi-Source Reasoning:\n\nDirections: Source A: A report shows a 5% decrease in complaints after a service improvement initiative.\nSource B: Another report shows a 10% increase in customer satisfaction.\n\nQuestion:\nWhat is the most likely impact of the service initiative?",
+        options: [
+          "It reduced complaints and increased satisfaction.",
+          "It only reduced complaints without affecting satisfaction.",
+          "It only increased satisfaction without reducing complaints.",
+          "It led to both fewer complaints and higher satisfaction.",
+          "The data are contradictory."
+        ],
+        correct: 0
+      },
+      {
+        question: "Table Analysis:\n\nDirections: A table lists quarterly profits (in millions): Q1: $2.5, Q2: $3.0, Q3: $3.5, Q4: $4.0.\n\nQuestion:\nWhat is the percentage growth from Q1 to Q4?",
+        options: ["20%", "25%", "30%", "35%", "40%"],
+        correct: 1
+      },
+      {
+        question: "Two-Part Analysis:\n\nDirections: A retailer finds that a 10% price drop results in a 25% increase in sales. If the original price was $80 and 400 units were sold, what is the new revenue?",
+        options: ["$34,000", "$35,000", "$36,000", "$37,000", "$38,000"],
+        correct: 2
+      },
+      {
+        question: "Data Interpretation:\n\nDirections: A line graph shows monthly operating costs (in thousands): January: 10, February: 12, March: 11, April: 13, May: 15, June: 14, July: 16, August: 15, September: 17, October: 18, November: 16, December: 15.\n\nQuestion:\nWhat is the average monthly operating cost?",
+        options: ["$13K", "$14K", "$14.3K", "$15K", "$16K"],
+        correct: 2
+      }
     ];
 
-    /***************
-     * STATE VARIABLES
-     ***************/
+    /********************************
+     * STATE VARIABLES & TIMER SETUP
+     ********************************/
+    const totalQuant = quantQuestions.length;   // 21
+    const totalVerbal = verbalQuestions.length;   // 23
+    const totalData = dataQuestions.length;       // 20
     let currentQuant = 0, currentVerbal = 0, currentData = 0;
-    const quantAnswers = Array(quantQuestions.length).fill(null);
-    const verbalAnswers = Array(verbalQuestions.length).fill(null);
-    const dataAnswers = Array(dataQuestions.length).fill(null);
+    const quantAnswers = Array(totalQuant).fill(null);
+    const verbalAnswers = Array(totalVerbal).fill(null);
+    const dataAnswers = Array(totalData).fill(null);
 
-    /***************
-     * TIMER AND NAVIGATION
-     ***************/
+    // Timer variables for each section (45 minutes = 2700 seconds)
+    let sectionTimeRemaining = 2700;
+    let sectionTimerInterval = null;
+
+    // Helper: Format seconds as MM:SS
+    function formatTime(seconds) {
+      const m = Math.floor(seconds / 60);
+      const s = seconds % 60;
+      return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    }
+
+    // Start timer for the current section
+    function startSectionTimer() {
+      sectionTimeRemaining = 2700; // Reset to 45 minutes
+      document.getElementById("timerDisplay").textContent = "Time Remaining: " + formatTime(sectionTimeRemaining);
+      sectionTimerInterval = setInterval(() => {
+        sectionTimeRemaining--;
+        document.getElementById("timerDisplay").textContent = "Time Remaining: " + formatTime(sectionTimeRemaining);
+        if (sectionTimeRemaining <= 0) {
+          clearInterval(sectionTimerInterval);
+          alert("Time is up for this section. Moving to the next section.");
+          moveToNextSection();
+        }
+      }, 1000);
+    }
+
+    // Update progress: Count unanswered questions in the given section
+    function updateProgress(section) {
+      let unanswered = 0, total = 0;
+      if (section === 'quant') {
+        total = totalQuant;
+        quantAnswers.forEach(ans => { if (ans === null) unanswered++; });
+        document.getElementById("progress-quant").textContent = `Unanswered: ${unanswered} out of ${total}`;
+      } else if (section === 'verbal') {
+        total = totalVerbal;
+        verbalAnswers.forEach(ans => { if (ans === null) unanswered++; });
+        document.getElementById("progress-verbal").textContent = `Unanswered: ${unanswered} out of ${total}`;
+      } else if (section === 'data') {
+        total = totalData;
+        dataAnswers.forEach(ans => { if (ans === null) unanswered++; });
+        document.getElementById("progress-data").textContent = `Unanswered: ${unanswered} out of ${total}`;
+      }
+    }
+
+    // Render a question for a given section and index
+    function renderQuestion(section, index) {
+      let qData, container;
+      if(section === 'quant') { 
+        qData = quantQuestions[index]; 
+        container = document.getElementById("questionContainer-quant"); 
+      }
+      else if(section === 'verbal') { 
+        qData = verbalQuestions[index]; 
+        container = document.getElementById("questionContainer-verbal"); 
+      }
+      else if(section === 'data') { 
+        qData = dataQuestions[index]; 
+        container = document.getElementById("questionContainer-data"); 
+      }
+      
+      let html = `<h5>${"Question " + (index + 1) + ": " + qData.question}</h5><form id="${section}-form">`;
+      qData.options.forEach((opt, i) => {
+        const checked = ((section === 'quant' && quantAnswers[index] === i) ||
+                         (section === 'verbal' && verbalAnswers[index] === i) ||
+                         (section === 'data' && dataAnswers[index] === i)) ? "checked" : "";
+        html += `
+          <div class="form-check my-2">
+            <input class="form-check-input" type="radio" name="${section}-question" id="${section}-q${index}-opt${i}" value="${i}" ${checked}>
+            <label class="form-check-label option-label" for="${section}-q${index}-opt${i}">${opt}</label>
+          </div>
+        `;
+      });
+      html += `</form>`;
+      container.innerHTML = html;
+      document.getElementById("prev-" + section).disabled = (index === 0);
+      document.getElementById("next-" + section).textContent = "Next";
+      updateProgress(section);
+    }
+
+    // Save the selected answer for the current question
+    function saveAnswer(section, index) {
+      const form = document.querySelector(`#${section}-form`);
+      if(form) {
+        const selected = form.elements[`${section}-question`].value;
+        if(selected === "" || selected === undefined) return false;
+        if(section === 'quant') quantAnswers[index] = parseInt(selected);
+        else if(section === 'verbal') verbalAnswers[index] = parseInt(selected);
+        else if(section === 'data') dataAnswers[index] = parseInt(selected);
+        updateProgress(section);
+        return true;
+      }
+      return false;
+    }
+
+    // Navigation: Next question (enforces answer selection)
+    function nextQuestion(section) {
+      let current, total;
+      if(section === 'quant') { current = currentQuant; total = totalQuant; }
+      else if(section === 'verbal') { current = currentVerbal; total = totalVerbal; }
+      else if(section === 'data') { current = currentData; total = totalData; }
+      if (!saveAnswer(section, current)) {
+        alert("Please select an answer before proceeding.");
+        return;
+      }
+      if (current < total - 1) {
+        if(section === 'quant') { currentQuant++; renderQuestion('quant', currentQuant); }
+        else if(section === 'verbal') { currentVerbal++; renderQuestion('verbal', currentVerbal); }
+        else if(section === 'data') { currentData++; renderQuestion('data', currentData); }
+      } else {
+        moveToNextSection();
+      }
+    }
+
+    // Navigation: Previous question within the current section
+    function prevQuestion(section) {
+      let current;
+      if(section === 'quant') { current = currentQuant; }
+      else if(section === 'verbal') { current = currentVerbal; }
+      else if(section === 'data') { current = currentData; }
+      if (current > 0) {
+        saveAnswer(section, current);
+        if(section === 'quant') { currentQuant--; renderQuestion('quant', currentQuant); }
+        else if(section === 'verbal') { currentVerbal--; renderQuestion('verbal', currentVerbal); }
+        else if(section === 'data') { currentData--; renderQuestion('data', currentData); }
+      }
+    }
+
+    // Show a specific section (Quant, then Verbal, then Data)
+    function showSection(sectionId) {
+      const sections = ["section-quant", "section-verbal", "section-data"];
+      sections.forEach(id => document.getElementById(id).classList.remove("active-section"));
+      document.getElementById(sectionId).classList.add("active-section");
+      clearInterval(sectionTimerInterval);
+      startSectionTimer();
+    }
+
+    // Move sequentially to the next section
+    function moveToNextSection() {
+      if(document.getElementById("section-quant").classList.contains("active-section")) {
+        showSection("section-verbal");
+      } else if(document.getElementById("section-verbal").classList.contains("active-section")) {
+        showSection("section-data");
+      } else if(document.getElementById("section-data").classList.contains("active-section")) {
+        submitExam();
+      }
+    }
+
+    // Generate the detailed Answer Review section
+    function generateReview() {
+      function createReviewCard(qText, yourAnswer, correctAnswer, options) {
+        const isCorrect = yourAnswer === correctAnswer;
+        const yourAnsText = (yourAnswer === null) ? "No answer selected" : options[yourAnswer];
+        const correctAnsText = options[correctAnswer];
+        return `
+          <div class="card review-card">
+            <div class="card-body">
+              <h6 style="white-space: pre-line;">${qText}</h6>
+              <p>Your answer: <span class="badge ${isCorrect ? 'bg-success' : 'bg-danger'}">${yourAnsText}</span>
+                ${!isCorrect ? '<small class="ms-2 text-muted">Review this concept.</small>' : ''}
+              </p>
+              ${!isCorrect ? `<p>Correct answer: <span class="badge bg-info text-dark">${correctAnsText}</span></p>` : ''}
+            </div>
+          </div>
+        `;
+      }
+      const reviewQuantContainer = document.getElementById("reviewQuant");
+      reviewQuantContainer.innerHTML = "";
+      quantQuestions.forEach((q, i) => {
+        reviewQuantContainer.innerHTML += createReviewCard(`Q${i+1}: ${q.question}`, quantAnswers[i], q.correct, q.options);
+      });
+      const reviewVerbalContainer = document.getElementById("reviewVerbal");
+      reviewVerbalContainer.innerHTML = "";
+      verbalQuestions.forEach((q, i) => {
+        reviewVerbalContainer.innerHTML += createReviewCard(`Q${i+1}: ${q.question}`, verbalAnswers[i], q.correct, q.options);
+      });
+      const reviewDataContainer = document.getElementById("reviewData");
+      reviewDataContainer.innerHTML = "";
+      dataQuestions.forEach((q, i) => {
+        reviewDataContainer.innerHTML += createReviewCard(`Q${i+1}: ${q.question}`, dataAnswers[i], q.correct, q.options);
+      });
+    }
+
+    // Submit exam: compute results and generate review
+    function submitExam() {
+      if(document.getElementById("section-data").classList.contains("active-section")) {
+        saveAnswer('data', currentData);
+      }
+      clearInterval(sectionTimerInterval);
+      let correctCount = 0;
+      quantQuestions.forEach((q, i) => { if(quantAnswers[i] == q.correct) correctCount++; });
+      verbalQuestions.forEach((q, i) => { if(verbalAnswers[i] == q.correct) correctCount++; });
+      dataQuestions.forEach((q, i) => { if(dataAnswers[i] == q.correct) correctCount++; });
+      let wrongCount = 64 - correctCount;
+      const quantScore = 60 + 30 * (quantAnswers.filter((a, i) => a === quantQuestions[i].correct).length / totalQuant);
+      const verbalScore = 60 + 30 * (verbalAnswers.filter((a, i) => a === verbalQuestions[i].correct).length / totalVerbal);
+      const dataScore = 60 + 30 * (dataAnswers.filter((a, i) => a === dataQuestions[i].correct).length / totalData);
+      const avgSectionScore = (quantScore + verbalScore + dataScore) / 3;
+      let totalScore = 205 + ((avgSectionScore - 60) / 30) * 600;
+      totalScore = Math.round(totalScore / 5) * 5;
+      document.getElementById("correctCount").textContent = correctCount;
+      document.getElementById("wrongCount").textContent = wrongCount;
+      document.getElementById("totalScore").textContent = totalScore;
+      document.getElementById("section-data").style.display = "none";
+      document.getElementById("timerSection").style.display = "none";
+      document.getElementById("resultsSection").style.display = "block";
+      document.getElementById("reviewSection").style.display = "block";
+      generateReview();
+    }
+
+    /**********************
+     * EVENT LISTENERS
+     **********************/
+    document.getElementById("next-quant").addEventListener("click", () => { nextQuestion('quant'); });
+    document.getElementById("prev-quant").addEventListener("click", () => { prevQuestion('quant'); });
+    document.getElementById("next-verbal").addEventListener("click", () => { nextQuestion('verbal'); });
+    document.getElementById("prev-verbal").addEventListener("click", () => { prevQuestion('verbal'); });
+    document.getElementById("next-data").addEventListener("click", () => { nextQuestion('data'); });
+    document.getElementById("prev-data").addEventListener("click", () => { prevQuestion('data'); });
+    document.getElementById("endSessionBtn").addEventListener("click", () => {
+      if(confirm("Are you sure you want to end the session early? Your exam will be submitted.")) {
+        submitExam();
+      }
+    });
     document.getElementById("startExamBtn").addEventListener("click", () => {
       document.getElementById("startSection").style.display = "none";
       document.getElementById("timerSection").style.display = "flex";
@@ -165,86 +968,6 @@
       startSectionTimer();
       renderQuestion('quant', currentQuant);
     });
-
-    function startSectionTimer() {
-      let timeRemaining = 2700;
-      document.getElementById("timerDisplay").textContent = `Time Remaining: ${formatTime(timeRemaining)}`;
-      const interval = setInterval(() => {
-        timeRemaining--;
-        document.getElementById("timerDisplay").textContent = `Time Remaining: ${formatTime(timeRemaining)}`;
-        if (timeRemaining <= 0) {
-          clearInterval(interval);
-          moveToNextSection();
-        }
-      }, 1000);
-    }
-
-    function formatTime(seconds) {
-      const minutes = Math.floor(seconds / 60);
-      const secs = seconds % 60;
-      return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-    }
-
-    function renderQuestion(section, index) {
-      let qData, container;
-      if (section === 'quant') {
-        qData = quantQuestions[index];
-        container = document.getElementById("questionContainer-quant");
-      } else if (section === 'verbal') {
-        qData = verbalQuestions[index];
-        container = document.getElementById("questionContainer-verbal");
-      } else {
-        qData = dataQuestions[index];
-        container = document.getElementById("questionContainer-data");
-      }
-
-      container.innerHTML = `
-        <h5>${qData.question}</h5>
-        <form id="${section}-form">
-          ${qData.options.map((opt, i) => `
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="${section}-question" id="${section}-q${index}-opt${i}" value="${i}">
-              <label class="form-check-label option-label" for="${section}-q${index}-opt${i}">${opt}</label>
-            </div>
-          `).join('')}
-        </form>
-      `;
-    }
-
-    function moveToNextSection() {
-      if (currentQuant < quantQuestions.length - 1) {
-        currentQuant++;
-        renderQuestion('quant', currentQuant);
-      } else if (currentVerbal < verbalQuestions.length - 1) {
-        currentVerbal++;
-        renderQuestion('verbal', currentVerbal);
-      } else if (currentData < dataQuestions.length - 1) {
-        currentData++;
-        renderQuestion('data', currentData);
-      } else {
-        submitExam();
-      }
-    }
-
-    function submitExam() {
-      // Calculate scores and display results
-      const correctQuant = quantAnswers.filter((ans, i) => ans === quantQuestions[i].correct).length;
-      const correctVerbal = verbalAnswers.filter((ans, i) => ans === verbalQuestions[i].correct).length;
-      const correctData = dataAnswers.filter((ans, i) => ans === dataQuestions[i].correct).length;
-      document.getElementById("correctCount").textContent = correctQuant + correctVerbal + correctData;
-      document.getElementById("wrongCount").textContent = 64 - (correctQuant + correctVerbal + correctData);
-      document.getElementById("totalScore").textContent = calculateTotalScore(correctQuant, correctVerbal, correctData);
-      document.getElementById("resultsSection").style.display = "block";
-      document.getElementById("timerSection").style.display = "none";
-    }
-
-    function calculateTotalScore(quant, verbal, data) {
-      const quantScore = 60 + (30 * (quant / quantQuestions.length));
-      const verbalScore = 60 + (30 * (verbal / verbalQuestions.length));
-      const dataScore = 60 + (30 * (data / dataQuestions.length));
-      const avgScore = (quantScore + verbalScore + dataScore) / 3;
-      return 205 + ((avgScore - 60) / 30) * 600;
-    }
   </script>
 </body>
 </html>
