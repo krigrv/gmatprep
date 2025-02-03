@@ -1,191 +1,1744 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GMAT Practice Test</title>
+  <!-- Bootstrap 5 CSS from CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 20px;
-      background-color: #f4f4f4;
+      background-color: #f8f9fa;
     }
     .container {
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-      padding: 20px;
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #ffffff;
       border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    h1, h2, h3 {
-      color: #333;
-    }
-    .section {
-      margin-bottom: 40px;
+    .section-header {
+      border-bottom: 2px solid #dee2e6;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
     }
     .question {
-      margin: 15px 0;
-      padding: 10px;
-      border-bottom: 1px solid #ddd;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e9ecef;
     }
     .question p {
-      margin: 5px 0;
-    }
-    .options label {
-      display: block;
-      margin: 5px 0;
+      margin-bottom: 0.5rem;
     }
     .submit-btn {
-      background-color: #007acc;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .submit-btn:hover {
-      background-color: #005fa3;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>GMAT Practice Test</h1>
+    <!-- Header -->
+    <header class="mb-4">
+      <h1 class="mb-3">GMAT Practice Test</h1>
       <p><strong>Total Number of Questions:</strong> 64</p>
       <p><strong>Total Time:</strong> 2 Hours 15 Minutes</p>
       <p><strong>Overall Scoring Range:</strong> 205–805 (10-point Increment)</p>
     </header>
-    
-    <!-- Section I: Quantitative Reasoning -->
-    <section class="section" id="quantitative">
-      <h2>Section I: Quantitative Reasoning (QR)</h2>
-      <p><strong>Number of Questions:</strong> 21 &nbsp;&nbsp;&nbsp;
-         <strong>Time Allotted:</strong> 45 Minutes &nbsp;&nbsp;&nbsp;
-         <strong>Scoring Range:</strong> 60–90 (1-point Increment)
-      </p>
+
+    <!-- Section I: Quantitative Reasoning (QR) -->
+    <section id="quantitative" class="mb-5">
+      <div class="section-header">
+        <h2>Section I: Quantitative Reasoning (QR)</h2>
+        <p>
+          <strong>Number of Questions:</strong> 21&nbsp;&nbsp;&nbsp;
+          <strong>Time Allotted:</strong> 45 Minutes&nbsp;&nbsp;&nbsp;
+          <strong>Scoring Range:</strong> 60–90 (1-point Increment)
+        </p>
+      </div>
       <form id="qr-form">
-        <!-- Sample Question 1 -->
+        <!-- QR 1 -->
         <div class="question">
           <p><strong>QR 1. Problem Solving:</strong> If 2x + 5 = 17, what is the value of x?</p>
-          <div class="options">
-            <label><input type="radio" name="qr1" value="5"> A) 5</label>
-            <label><input type="radio" name="qr1" value="6"> B) 6</label>
-            <label><input type="radio" name="qr1" value="7"> C) 7</label>
-            <label><input type="radio" name="qr1" value="8"> D) 8</label>
-            <label><input type="radio" name="qr1" value="9"> E) 9</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr1" id="qr1a" value="A">
+            <label class="form-check-label" for="qr1a">A) 5</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr1" id="qr1b" value="B">
+            <label class="form-check-label" for="qr1b">B) 6</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr1" id="qr1c" value="C">
+            <label class="form-check-label" for="qr1c">C) 7</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr1" id="qr1d" value="D">
+            <label class="form-check-label" for="qr1d">D) 8</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr1" id="qr1e" value="E">
+            <label class="form-check-label" for="qr1e">E) 9</label>
           </div>
         </div>
-        
-        <!-- Sample Question 2 (Data Sufficiency) -->
+        <!-- QR 2 -->
         <div class="question">
-          <p><strong>QR 2. Data Sufficiency:</strong> Is x > 0? <br>
-             (1) x² = 16<br>
-             (2) x + 4 > 0
+          <p><strong>QR 2. Data Sufficiency:</strong> Is x > 0?<br>
+            (1) x² = 16<br>
+            (2) x + 4 > 0
           </p>
-          <div class="options">
-            <label><input type="radio" name="qr2" value="A"> A) Statement (1) alone is sufficient, but statement (2) is not sufficient.</label>
-            <label><input type="radio" name="qr2" value="B"> B) Statement (2) alone is sufficient, but statement (1) is not sufficient.</label>
-            <label><input type="radio" name="qr2" value="C"> C) Both statements together are sufficient.</label>
-            <label><input type="radio" name="qr2" value="D"> D) Each statement alone is sufficient.</label>
-            <label><input type="radio" name="qr2" value="E"> E) Neither statement is sufficient.</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr2" id="qr2a" value="A">
+            <label class="form-check-label" for="qr2a">A) Statement (1) alone is sufficient, but statement (2) is not sufficient.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr2" id="qr2b" value="B">
+            <label class="form-check-label" for="qr2b">B) Statement (2) alone is sufficient, but statement (1) is not sufficient.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr2" id="qr2c" value="C">
+            <label class="form-check-label" for="qr2c">C) Both statements together are sufficient.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr2" id="qr2d" value="D">
+            <label class="form-check-label" for="qr2d">D) Each statement alone is sufficient.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr2" id="qr2e" value="E">
+            <label class="form-check-label" for="qr2e">E) Neither statement is sufficient.</label>
           </div>
         </div>
-
-        <!-- You can add the remaining 19 QR questions in similar fashion -->
-        <!-- ... -->
+        <!-- QR 3 -->
+        <div class="question">
+          <p><strong>QR 3. Problem Solving:</strong> A rectangle’s length is 3 times its width. If the perimeter is 64, what is the area of the rectangle?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr3" id="qr3a" value="A">
+            <label class="form-check-label" for="qr3a">A) 192</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr3" id="qr3b" value="B">
+            <label class="form-check-label" for="qr3b">B) 208</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr3" id="qr3c" value="C">
+            <label class="form-check-label" for="qr3c">C) 240</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr3" id="qr3d" value="D">
+            <label class="form-check-label" for="qr3d">D) 256</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr3" id="qr3e" value="E">
+            <label class="form-check-label" for="qr3e">E) 288</label>
+          </div>
+        </div>
+        <!-- QR 4 -->
+        <div class="question">
+          <p><strong>QR 4. Problem Solving:</strong> Solve for y: 3(y – 2) = 2y + 5</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr4" id="qr4a" value="A">
+            <label class="form-check-label" for="qr4a">A) 11</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr4" id="qr4b" value="B">
+            <label class="form-check-label" for="qr4b">B) 9</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr4" id="qr4c" value="C">
+            <label class="form-check-label" for="qr4c">C) 7</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr4" id="qr4d" value="D">
+            <label class="form-check-label" for="qr4d">D) 5</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr4" id="qr4e" value="E">
+            <label class="form-check-label" for="qr4e">E) 3</label>
+          </div>
+        </div>
+        <!-- QR 5 -->
+        <div class="question">
+          <p><strong>QR 5. Problem Solving:</strong> The average of five numbers is 12. Four of the numbers are 10, 14, 8, and 16. What is the fifth number?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr5" id="qr5a" value="A">
+            <label class="form-check-label" for="qr5a">A) 12</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr5" id="qr5b" value="B">
+            <label class="form-check-label" for="qr5b">B) 14</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr5" id="qr5c" value="C">
+            <label class="form-check-label" for="qr5c">C) 10</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr5" id="qr5d" value="D">
+            <label class="form-check-label" for="qr5d">D) 16</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr5" id="qr5e" value="E">
+            <label class="form-check-label" for="qr5e">E) 8</label>
+          </div>
+        </div>
+        <!-- QR 6 -->
+        <div class="question">
+          <p><strong>QR 6. Problem Solving:</strong> What is the sum of 1/2 and 1/3?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr6" id="qr6a" value="A">
+            <label class="form-check-label" for="qr6a">A) 5/6</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr6" id="qr6b" value="B">
+            <label class="form-check-label" for="qr6b">B) 1/2</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr6" id="qr6c" value="C">
+            <label class="form-check-label" for="qr6c">C) 2/3</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr6" id="qr6d" value="D">
+            <label class="form-check-label" for="qr6d">D) 7/12</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr6" id="qr6e" value="E">
+            <label class="form-check-label" for="qr6e">E) 5/12</label>
+          </div>
+        </div>
+        <!-- QR 7 -->
+        <div class="question">
+          <p><strong>QR 7. Problem Solving:</strong> An investment doubles every 6 years. If $1,000 is invested now, how much will it be worth after 12 years?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr7" id="qr7a" value="A">
+            <label class="form-check-label" for="qr7a">A) $2,000</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr7" id="qr7b" value="B">
+            <label class="form-check-label" for="qr7b">B) $3,000</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr7" id="qr7c" value="C">
+            <label class="form-check-label" for="qr7c">C) $4,000</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr7" id="qr7d" value="D">
+            <label class="form-check-label" for="qr7d">D) $5,000</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr7" id="qr7e" value="E">
+            <label class="form-check-label" for="qr7e">E) $6,000</label>
+          </div>
+        </div>
+        <!-- QR 8 -->
+        <div class="question">
+          <p><strong>QR 8. Problem Solving:</strong> If f(x) = 2x² – 3, what is f(3)?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr8" id="qr8a" value="A">
+            <label class="form-check-label" for="qr8a">A) 15</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr8" id="qr8b" value="B">
+            <label class="form-check-label" for="qr8b">B) 16</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr8" id="qr8c" value="C">
+            <label class="form-check-label" for="qr8c">C) 17</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr8" id="qr8d" value="D">
+            <label class="form-check-label" for="qr8d">D) 18</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr8" id="qr8e" value="E">
+            <label class="form-check-label" for="qr8e">E) 19</label>
+          </div>
+        </div>
+        <!-- QR 9 -->
+        <div class="question">
+          <p><strong>QR 9. Problem Solving:</strong> Solve (x – 4)² = 9. What are the possible values of x?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr9" id="qr9a" value="A">
+            <label class="form-check-label" for="qr9a">A) 1 and 7</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr9" id="qr9b" value="B">
+            <label class="form-check-label" for="qr9b">B) –1 and 7</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr9" id="qr9c" value="C">
+            <label class="form-check-label" for="qr9c">C) –1 and 5</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr9" id="qr9d" value="D">
+            <label class="form-check-label" for="qr9d">D) 1 and 5</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr9" id="qr9e" value="E">
+            <label class="form-check-label" for="qr9e">E) 4 and 9</label>
+          </div>
+        </div>
+        <!-- QR 10 -->
+        <div class="question">
+          <p><strong>QR 10. Problem Solving:</strong> What is the sum of the first 10 positive integers?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr10" id="qr10a" value="A">
+            <label class="form-check-label" for="qr10a">A) 45</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr10" id="qr10b" value="B">
+            <label class="form-check-label" for="qr10b">B) 46</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr10" id="qr10c" value="C">
+            <label class="form-check-label" for="qr10c">C) 55</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr10" id="qr10d" value="D">
+            <label class="form-check-label" for="qr10d">D) 56</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr10" id="qr10e" value="E">
+            <label class="form-check-label" for="qr10e">E) 65</label>
+          </div>
+        </div>
+        <!-- QR 11 -->
+        <div class="question">
+          <p><strong>QR 11. Problem Solving:</strong> A car travels 180 miles in 3 hours. What is its average speed in miles per hour?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr11" id="qr11a" value="A">
+            <label class="form-check-label" for="qr11a">A) 50</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr11" id="qr11b" value="B">
+            <label class="form-check-label" for="qr11b">B) 55</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr11" id="qr11c" value="C">
+            <label class="form-check-label" for="qr11c">C) 60</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr11" id="qr11d" value="D">
+            <label class="form-check-label" for="qr11d">D) 65</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr11" id="qr11e" value="E">
+            <label class="form-check-label" for="qr11e">E) 70</label>
+          </div>
+        </div>
+        <!-- QR 12 -->
+        <div class="question">
+          <p><strong>QR 12. Problem Solving:</strong> A 20% discount is applied to a $50 item. What is the discounted price?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr12" id="qr12a" value="A">
+            <label class="form-check-label" for="qr12a">A) $35</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr12" id="qr12b" value="B">
+            <label class="form-check-label" for="qr12b">B) $38</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr12" id="qr12c" value="C">
+            <label class="form-check-label" for="qr12c">C) $40</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr12" id="qr12d" value="D">
+            <label class="form-check-label" for="qr12d">D) $42</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr12" id="qr12e" value="E">
+            <label class="form-check-label" for="qr12e">E) $45</label>
+          </div>
+        </div>
+        <!-- QR 13 -->
+        <div class="question">
+          <p><strong>QR 13. Problem Solving:</strong> Solve for x: 5x – 3 = 2x + 9</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr13" id="qr13a" value="A">
+            <label class="form-check-label" for="qr13a">A) 4</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr13" id="qr13b" value="B">
+            <label class="form-check-label" for="qr13b">B) 5</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr13" id="qr13c" value="C">
+            <label class="form-check-label" for="qr13c">C) 6</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr13" id="qr13d" value="D">
+            <label class="form-check-label" for="qr13d">D) 7</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr13" id="qr13e" value="E">
+            <label class="form-check-label" for="qr13e">E) 8</label>
+          </div>
+        </div>
+        <!-- QR 14 -->
+        <div class="question">
+          <p><strong>QR 14. Problem Solving:</strong> A circle has a circumference of 31.4. Using π = 3.14, what is the circle’s approximate radius?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr14" id="qr14a" value="A">
+            <label class="form-check-label" for="qr14a">A) 5</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr14" id="qr14b" value="B">
+            <label class="form-check-label" for="qr14b">B) 10</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr14" id="qr14c" value="C">
+            <label class="form-check-label" for="qr14c">C) 7</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr14" id="qr14d" value="D">
+            <label class="form-check-label" for="qr14d">D) 4</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr14" id="qr14e" value="E">
+            <label class="form-check-label" for="qr14e">E) 3</label>
+          </div>
+        </div>
+        <!-- QR 15 -->
+        <div class="question">
+          <p><strong>QR 15. Problem Solving:</strong> If 1/4 of a number is 15, what is the number?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr15" id="qr15a" value="A">
+            <label class="form-check-label" for="qr15a">A) 45</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr15" id="qr15b" value="B">
+            <label class="form-check-label" for="qr15b">B) 50</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr15" id="qr15c" value="C">
+            <label class="form-check-label" for="qr15c">C) 55</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr15" id="qr15d" value="D">
+            <label class="form-check-label" for="qr15d">D) 60</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr15" id="qr15e" value="E">
+            <label class="form-check-label" for="qr15e">E) 65</label>
+          </div>
+        </div>
+        <!-- QR 16 -->
+        <div class="question">
+          <p><strong>QR 16. Problem Solving:</strong> The product of two consecutive integers is 56. What are the integers?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr16" id="qr16a" value="A">
+            <label class="form-check-label" for="qr16a">A) 7 and 8</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr16" id="qr16b" value="B">
+            <label class="form-check-label" for="qr16b">B) 6 and 7</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr16" id="qr16c" value="C">
+            <label class="form-check-label" for="qr16c">C) 8 and 9</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr16" id="qr16d" value="D">
+            <label class="form-check-label" for="qr16d">D) 5 and 6</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr16" id="qr16e" value="E">
+            <label class="form-check-label" for="qr16e">E) 4 and 5</label>
+          </div>
+        </div>
+        <!-- QR 17 -->
+        <div class="question">
+          <p><strong>QR 17. Problem Solving:</strong> Solve for z: 4(z + 2) = 2z + 20</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr17" id="qr17a" value="A">
+            <label class="form-check-label" for="qr17a">A) 3</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr17" id="qr17b" value="B">
+            <label class="form-check-label" for="qr17b">B) 4</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr17" id="qr17c" value="C">
+            <label class="form-check-label" for="qr17c">C) 5</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr17" id="qr17d" value="D">
+            <label class="form-check-label" for="qr17d">D) 6</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr17" id="qr17e" value="E">
+            <label class="form-check-label" for="qr17e">E) 7</label>
+          </div>
+        </div>
+        <!-- QR 18 -->
+        <div class="question">
+          <p><strong>QR 18. Problem Solving:</strong> In a class, the ratio of boys to girls is 3:2. If there are 30 students, how many boys are there?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr18" id="qr18a" value="A">
+            <label class="form-check-label" for="qr18a">A) 12</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr18" id="qr18b" value="B">
+            <label class="form-check-label" for="qr18b">B) 15</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr18" id="qr18c" value="C">
+            <label class="form-check-label" for="qr18c">C) 18</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr18" id="qr18d" value="D">
+            <label class="form-check-label" for="qr18d">D) 20</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr18" id="qr18e" value="E">
+            <label class="form-check-label" for="qr18e">E) 24</label>
+          </div>
+        </div>
+        <!-- QR 19 -->
+        <div class="question">
+          <p><strong>QR 19. Problem Solving:</strong> What is 15% of 200?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr19" id="qr19a" value="A">
+            <label class="form-check-label" for="qr19a">A) 20</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr19" id="qr19b" value="B">
+            <label class="form-check-label" for="qr19b">B) 25</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr19" id="qr19c" value="C">
+            <label class="form-check-label" for="qr19c">C) 30</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr19" id="qr19d" value="D">
+            <label class="form-check-label" for="qr19d">D) 35</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr19" id="qr19e" value="E">
+            <label class="form-check-label" for="qr19e">E) 40</label>
+          </div>
+        </div>
+        <!-- QR 20 -->
+        <div class="question">
+          <p><strong>QR 20. Problem Solving:</strong> If a + b = 10 and a – b = 2, what is the value of a?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr20" id="qr20a" value="A">
+            <label class="form-check-label" for="qr20a">A) 4</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr20" id="qr20b" value="B">
+            <label class="form-check-label" for="qr20b">B) 5</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr20" id="qr20c" value="C">
+            <label class="form-check-label" for="qr20c">C) 6</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr20" id="qr20d" value="D">
+            <label class="form-check-label" for="qr20d">D) 7</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr20" id="qr20e" value="E">
+            <label class="form-check-label" for="qr20e">E) 8</label>
+          </div>
+        </div>
+        <!-- QR 21 -->
+        <div class="question">
+          <p><strong>QR 21. Problem Solving:</strong> What is the value of 3³ – 2³?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr21" id="qr21a" value="A">
+            <label class="form-check-label" for="qr21a">A) 19</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr21" id="qr21b" value="B">
+            <label class="form-check-label" for="qr21b">B) 21</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr21" id="qr21c" value="C">
+            <label class="form-check-label" for="qr21c">C) 23</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr21" id="qr21d" value="D">
+            <label class="form-check-label" for="qr21d">D) 25</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="qr21" id="qr21e" value="E">
+            <label class="form-check-label" for="qr21e">E) 27</label>
+          </div>
+        </div>
       </form>
     </section>
-    
-    <!-- Section II: Verbal Reasoning -->
-    <section class="section" id="verbal">
-      <h2>Section II: Verbal Reasoning (VR)</h2>
-      <p><strong>Number of Questions:</strong> 23 &nbsp;&nbsp;&nbsp;
-         <strong>Time Allotted:</strong> 45 Minutes &nbsp;&nbsp;&nbsp;
-         <strong>Scoring Range:</strong> 60–90 (1-point Increment)
-      </p>
+
+    <!-- Section II: Verbal Reasoning (VR) -->
+    <section id="verbal" class="mb-5">
+      <div class="section-header">
+        <h2>Section II: Verbal Reasoning (VR)</h2>
+        <p>
+          <strong>Number of Questions:</strong> 23&nbsp;&nbsp;&nbsp;
+          <strong>Time Allotted:</strong> 45 Minutes&nbsp;&nbsp;&nbsp;
+          <strong>Scoring Range:</strong> 60–90 (1-point Increment)
+        </p>
+      </div>
       <form id="vr-form">
-        <!-- Sample Question 1 (Sentence Correction) -->
+        <!-- VR 1 -->
         <div class="question">
           <p><strong>VR 1. Sentence Correction:</strong> “The new policy, which was implemented last month, <em>have significantly improved employee productivity</em>.”</p>
-          <div class="options">
-            <label><input type="radio" name="vr1" value="A"> A) have significantly improved employee productivity</label>
-            <label><input type="radio" name="vr1" value="B"> B) has significantly improved employee productivity</label>
-            <label><input type="radio" name="vr1" value="C"> C) significantly improves employee productivity</label>
-            <label><input type="radio" name="vr1" value="D"> D) significantly improved employee productivity</label>
-            <label><input type="radio" name="vr1" value="E"> E) has been significantly improving employee productivity</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr1" id="vr1a" value="A">
+            <label class="form-check-label" for="vr1a">A) have significantly improved employee productivity</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr1" id="vr1b" value="B">
+            <label class="form-check-label" for="vr1b">B) has significantly improved employee productivity</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr1" id="vr1c" value="C">
+            <label class="form-check-label" for="vr1c">C) significantly improves employee productivity</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr1" id="vr1d" value="D">
+            <label class="form-check-label" for="vr1d">D) significantly improved employee productivity</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr1" id="vr1e" value="E">
+            <label class="form-check-label" for="vr1e">E) has been significantly improving employee productivity</label>
           </div>
         </div>
-        
-        <!-- You can add the remaining 22 VR questions in similar fashion -->
-        <!-- ... -->
+        <!-- VR 2 -->
+        <div class="question">
+          <p><strong>VR 2. Sentence Correction:</strong> “Neither the CEO nor the managers <em>was aware of the error</em>.”</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr2" id="vr2a" value="A">
+            <label class="form-check-label" for="vr2a">A) was aware of the error</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr2" id="vr2b" value="B">
+            <label class="form-check-label" for="vr2b">B) were aware of the error</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr2" id="vr2c" value="C">
+            <label class="form-check-label" for="vr2c">C) is aware of the error</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr2" id="vr2d" value="D">
+            <label class="form-check-label" for="vr2d">D) have been aware of the error</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr2" id="vr2e" value="E">
+            <label class="form-check-label" for="vr2e">E) had been aware of the error</label>
+          </div>
+        </div>
+        <!-- VR 3 -->
+        <div class="question">
+          <p><strong>VR 3. Critical Reasoning:</strong> A recent study suggests that individuals who sleep less than six hours per night are more likely to experience stress. Which of the following, if true, would most seriously undermine the study’s conclusion?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr3" id="vr3a" value="A">
+            <label class="form-check-label" for="vr3a">A) Some individuals who sleep less than six hours are young and healthy.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr3" id="vr3b" value="B">
+            <label class="form-check-label" for="vr3b">B) Many individuals who experience high stress levels still sleep more than six hours.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr3" id="vr3c" value="C">
+            <label class="form-check-label" for="vr3c">C) The study did not account for individuals who sleep more than eight hours.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr3" id="vr3d" value="D">
+            <label class="form-check-label" for="vr3d">D) The measurement of sleep duration in the study was self-reported.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr3" id="vr3e" value="E">
+            <label class="form-check-label" for="vr3e">E) There is a genetic component to stress that was not considered.</label>
+          </div>
+        </div>
+        <!-- VR 4 -->
+        <div class="question">
+          <p><strong>VR 4. Reading Comprehension:</strong> <em>Passage Excerpt:</em> “In recent years, the market for renewable energy has expanded rapidly due to advancements in technology and increased governmental incentives. This growth is expected to continue as economies shift toward sustainable practices.”<br>
+            Which of the following best describes the author’s attitude toward renewable energy?
+          </p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr4" id="vr4a" value="A">
+            <label class="form-check-label" for="vr4a">A) Skeptical</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr4" id="vr4b" value="B">
+            <label class="form-check-label" for="vr4b">B) Indifferent</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr4" id="vr4c" value="C">
+            <label class="form-check-label" for="vr4c">C) Optimistic</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr4" id="vr4d" value="D">
+            <label class="form-check-label" for="vr4d">D) Alarmed</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr4" id="vr4e" value="E">
+            <label class="form-check-label" for="vr4e">E) Cynical</label>
+          </div>
+        </div>
+        <!-- VR 5 -->
+        <div class="question">
+          <p><strong>VR 5. Sentence Correction:</strong> “The committee’s decision to postpone the vote, due to the lack of necessary documents, <em>is seen as a prudent measure</em>.”</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr5" id="vr5a" value="A">
+            <label class="form-check-label" for="vr5a">A) is seen as a prudent measure</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr5" id="vr5b" value="B">
+            <label class="form-check-label" for="vr5b">B) is seen as prudent measures</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr5" id="vr5c" value="C">
+            <label class="form-check-label" for="vr5c">C) was seen as a prudent measure</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr5" id="vr5d" value="D">
+            <label class="form-check-label" for="vr5d">D) is being seen as prudent measure</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr5" id="vr5e" value="E">
+            <label class="form-check-label" for="vr5e">E) sees as a prudent measure</label>
+          </div>
+        </div>
+        <!-- VR 6 -->
+        <div class="question">
+          <p><strong>VR 6. Sentence Correction:</strong> “Despite the economic downturn, the company managed <em>not only to survive but also thrive</em> in a competitive market.”</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr6" id="vr6a" value="A">
+            <label class="form-check-label" for="vr6a">A) managed to not only survive but also thrive</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr6" id="vr6b" value="B">
+            <label class="form-check-label" for="vr6b">B) managed not only to survive but also thrive</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr6" id="vr6c" value="C">
+            <label class="form-check-label" for="vr6c">C) managed not only survive but also thrive</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr6" id="vr6d" value="D">
+            <label class="form-check-label" for="vr6d">D) not only managed to survive but also thrived</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr6" id="vr6e" value="E">
+            <label class="form-check-label" for="vr6e">E) managed to survive, not only but also thrive</label>
+          </div>
+        </div>
+        <!-- VR 7 -->
+        <div class="question">
+          <p><strong>VR 7. Critical Reasoning:</strong> Research shows that a balanced diet improves cognitive function. Which of the following, if true, most strengthens this argument?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr7" id="vr7a" value="A">
+            <label class="form-check-label" for="vr7a">A) Individuals with balanced diets score higher on cognitive tests.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr7" id="vr7b" value="B">
+            <label class="form-check-label" for="vr7b">B) Some individuals with balanced diets still suffer from poor cognitive function.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr7" id="vr7c" value="C">
+            <label class="form-check-label" for="vr7c">C) Cognitive function is influenced solely by genetics.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr7" id="vr7d" value="D">
+            <label class="form-check-label" for="vr7d">D) A balanced diet is defined differently by various researchers.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr7" id="vr7e" value="E">
+            <label class="form-check-label" for="vr7e">E) The study did not include participants over the age of 60.</label>
+          </div>
+        </div>
+        <!-- VR 8 -->
+        <div class="question">
+          <p><strong>VR 8. Reading Comprehension:</strong> <em>Passage Excerpt:</em> “The novel’s intricate plot and well-developed characters have captivated readers worldwide, earning it numerous literary awards.”<br>
+            Which of the following can be inferred about the novel?
+          </p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr8" id="vr8a" value="A">
+            <label class="form-check-label" for="vr8a">A) It has a simple plot.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr8" id="vr8b" value="B">
+            <label class="form-check-label" for="vr8b">B) It appeals to a wide audience.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr8" id="vr8c" value="C">
+            <label class="form-check-label" for="vr8c">C) It is only popular in certain countries.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr8" id="vr8d" value="D">
+            <label class="form-check-label" for="vr8d">D) It has received mixed reviews.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr8" id="vr8e" value="E">
+            <label class="form-check-label" for="vr8e">E) It is primarily appreciated for its narrative style.</label>
+          </div>
+        </div>
+        <!-- VR 9 -->
+        <div class="question">
+          <p><strong>VR 9. Sentence Correction:</strong> “The rapid growth of the urban population, along with the decline of rural communities, <em>has led to significant economic challenges</em>.”</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr9" id="vr9a" value="A">
+            <label class="form-check-label" for="vr9a">A) has led to significant economic challenges</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr9" id="vr9b" value="B">
+            <label class="form-check-label" for="vr9b">B) have led to significant economic challenges</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr9" id="vr9c" value="C">
+            <label class="form-check-label" for="vr9c">C) leads to significant economic challenges</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr9" id="vr9d" value="D">
+            <label class="form-check-label" for="vr9d">D) is leading to significant economic challenges</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr9" id="vr9e" value="E">
+            <label class="form-check-label" for="vr9e">E) lead to significant economic challenges</label>
+          </div>
+        </div>
+        <!-- VR 10 -->
+        <div class="question">
+          <p><strong>VR 10. Critical Reasoning:</strong> A policy analyst argues that raising the minimum wage will boost consumer spending, thereby stimulating the economy. Which of the following, if true, would most seriously weaken the analyst’s argument?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr10" id="vr10a" value="A">
+            <label class="form-check-label" for="vr10a">A) Businesses might increase prices in response to higher wages.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr10" id="vr10b" value="B">
+            <label class="form-check-label" for="vr10b">B) Consumer spending is not affected by wage levels.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr10" id="vr10c" value="C">
+            <label class="form-check-label" for="vr10c">C) A higher minimum wage has led to economic decline in other countries.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr10" id="vr10d" value="D">
+            <label class="form-check-label" for="vr10d">D) Some low-wage workers save rather than spend their additional income.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr10" id="vr10e" value="E">
+            <label class="form-check-label" for="vr10e">E) The policy has been implemented in several states with mixed results.</label>
+          </div>
+        </div>
+        <!-- VR 11 -->
+        <div class="question">
+          <p><strong>VR 11. Sentence Correction:</strong> “Neither the proposal nor the suggestions offered by the consultant <em>were considered feasible by the board</em>.”</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr11" id="vr11a" value="A">
+            <label class="form-check-label" for="vr11a">A) were considered feasible by the board</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr11" id="vr11b" value="B">
+            <label class="form-check-label" for="vr11b">B) was considered feasible by the board</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr11" id="vr11c" value="C">
+            <label class="form-check-label" for="vr11c">C) are considered feasible by the board</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr11" id="vr11d" value="D">
+            <label class="form-check-label" for="vr11d">D) have been considered feasible by the board</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr11" id="vr11e" value="E">
+            <label class="form-check-label" for="vr11e">E) is considered feasible by the board</label>
+          </div>
+        </div>
+        <!-- VR 12 -->
+        <div class="question">
+          <p><strong>VR 12. Reading Comprehension:</strong> <em>Passage Excerpt:</em> “Advances in artificial intelligence have transformed multiple industries, from healthcare to finance, by automating routine tasks and providing insights through data analysis.”<br>
+            Which of the following best describes the author’s perspective on artificial intelligence?
+          </p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr12" id="vr12a" value="A">
+            <label class="form-check-label" for="vr12a">A) It is overrated in its potential impact.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr12" id="vr12b" value="B">
+            <label class="form-check-label" for="vr12b">B) It poses significant ethical challenges.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr12" id="vr12c" value="C">
+            <label class="form-check-label" for="vr12c">C) It is a revolutionary technology.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr12" id="vr12d" value="D">
+            <label class="form-check-label" for="vr12d">D) It primarily benefits tech companies.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr12" id="vr12e" value="E">
+            <label class="form-check-label" for="vr12e">E) It is limited to automating routine tasks.</label>
+          </div>
+        </div>
+        <!-- VR 13 -->
+        <div class="question">
+          <p><strong>VR 13. Sentence Correction:</strong> “The study’s findings, which are based on a relatively small sample size, <em>suggests that further research is needed</em>.”</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr13" id="vr13a" value="A">
+            <label class="form-check-label" for="vr13a">A) suggests that further research is needed</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr13" id="vr13b" value="B">
+            <label class="form-check-label" for="vr13b">B) suggest that further research is needed</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr13" id="vr13c" value="C">
+            <label class="form-check-label" for="vr13c">C) suggesting that further research is needed</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr13" id="vr13d" value="D">
+            <label class="form-check-label" for="vr13d">D) is suggesting that further research is needed</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr13" id="vr13e" value="E">
+            <label class="form-check-label" for="vr13e">E) has suggested that further research is needed</label>
+          </div>
+        </div>
+        <!-- VR 14 -->
+        <div class="question">
+          <p><strong>VR 14. Critical Reasoning:</strong> A company claims that its new software reduces processing time by 50%. However, critics argue that the software only appears faster because it limits the range of available functions. Which of the following, if true, most seriously undermines the critics’ argument?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr14" id="vr14a" value="A">
+            <label class="form-check-label" for="vr14a">A) The critics have a history of opposing new technologies.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr14" id="vr14b" value="B">
+            <label class="form-check-label" for="vr14b">B) Independent tests show that the software’s processing time is indeed reduced by 50% without any loss of functionality.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr14" id="vr14c" value="C">
+            <label class="form-check-label" for="vr14c">C) Other companies have released similar software with limited functions.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr14" id="vr14d" value="D">
+            <label class="form-check-label" for="vr14d">D) The software’s interface is more user-friendly than its competitors.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr14" id="vr14e" value="E">
+            <label class="form-check-label" for="vr14e">E) The reduction in processing time has led to increased productivity.</label>
+          </div>
+        </div>
+        <!-- VR 15 -->
+        <div class="question">
+          <p><strong>VR 15. Reading Comprehension:</strong> <em>Passage Excerpt:</em> “Environmental policies enacted over the past decade have led to a measurable decline in air pollutants in major urban centers.”<br>
+            Which of the following is most strongly supported by the passage?
+          </p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr15" id="vr15a" value="A">
+            <label class="form-check-label" for="vr15a">A) Urban centers have completely eliminated air pollution.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr15" id="vr15b" value="B">
+            <label class="form-check-label" for="vr15b">B) There has been a measurable decline in air pollutants in urban centers due to environmental policies.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr15" id="vr15c" value="C">
+            <label class="form-check-label" for="vr15c">C) Environmental policies have had no impact on rural areas.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr15" id="vr15d" value="D">
+            <label class="form-check-label" for="vr15d">D) Air pollution is no longer a concern in major cities.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr15" id="vr15e" value="E">
+            <label class="form-check-label" for="vr15e">E) The decline in air pollutants is solely due to environmental policies.</label>
+          </div>
+        </div>
+        <!-- VR 16 -->
+        <div class="question">
+          <p><strong>VR 16. Sentence Correction:</strong> “The team’s strategy, which involved an innovative approach to problem-solving, <em>proved to be both effective and efficient</em>.”</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr16" id="vr16a" value="A">
+            <label class="form-check-label" for="vr16a">A) proved to be both effective and efficient</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr16" id="vr16b" value="B">
+            <label class="form-check-label" for="vr16b">B) proving to be both effective and efficient</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr16" id="vr16c" value="C">
+            <label class="form-check-label" for="vr16c">C) has proved to be both effective and efficient</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr16" id="vr16d" value="D">
+            <label class="form-check-label" for="vr16d">D) was proving to be both effective and efficient</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr16" id="vr16e" value="E">
+            <label class="form-check-label" for="vr16e">E) proved both effective and efficiently</label>
+          </div>
+        </div>
+        <!-- VR 17 -->
+        <div class="question">
+          <p><strong>VR 17. Critical Reasoning:</strong> According to a recent survey, customers are more likely to purchase products that are environmentally friendly. Which of the following, if true, would most strengthen this conclusion?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr17" id="vr17a" value="A">
+            <label class="form-check-label" for="vr17a">A) The survey was conducted only in urban areas.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr17" id="vr17b" value="B">
+            <label class="form-check-label" for="vr17b">B) Sales data shows an increase in environmentally friendly products.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr17" id="vr17c" value="C">
+            <label class="form-check-label" for="vr17c">C) Some customers still prefer non-environmentally friendly products.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr17" id="vr17d" value="D">
+            <label class="form-check-label" for="vr17d">D) The survey did not include a diverse demographic.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr17" id="vr17e" value="E">
+            <label class="form-check-label" for="vr17e">E) Environmentally friendly products are often more expensive.</label>
+          </div>
+        </div>
+        <!-- VR 18 -->
+        <div class="question">
+          <p><strong>VR 18. Sentence Correction:</strong> “There is a growing consensus among experts that early childhood education <em>plays an important role in lifelong success</em>.”</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr18" id="vr18a" value="A">
+            <label class="form-check-label" for="vr18a">A) plays an important role in lifelong success</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr18" id="vr18b" value="B">
+            <label class="form-check-label" for="vr18b">B) played an important role in lifelong success</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr18" id="vr18c" value="C">
+            <label class="form-check-label" for="vr18c">C) will play an important role in lifelong success</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr18" id="vr18d" value="D">
+            <label class="form-check-label" for="vr18d">D) play an important role in lifelong success</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr18" id="vr18e" value="E">
+            <label class="form-check-label" for="vr18e">E) playing an important role in lifelong success</label>
+          </div>
+        </div>
+        <!-- VR 19 -->
+        <div class="question">
+          <p><strong>VR 19. Reading Comprehension:</strong> <em>Passage Excerpt:</em> “The economic downturn of 2008 led to unprecedented changes in financial regulations, many of which continue to influence market behavior today.”<br>
+            Which of the following best captures the main idea of the passage?
+          </p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr19" id="vr19a" value="A">
+            <label class="form-check-label" for="vr19a">A) The economic downturn had little effect on financial regulations.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr19" id="vr19b" value="B">
+            <label class="form-check-label" for="vr19b">B) Financial regulations have changed so much that they no longer affect the market.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr19" id="vr19c" value="C">
+            <label class="form-check-label" for="vr19c">C) The changes in financial regulations from 2008 have had a lasting impact on market behavior.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr19" id="vr19d" value="D">
+            <label class="form-check-label" for="vr19d">D) Market behavior today is completely different from that before 2008.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr19" id="vr19e" value="E">
+            <label class="form-check-label" for="vr19e">E) The economic downturn was beneficial for market stability.</label>
+          </div>
+        </div>
+        <!-- VR 20 -->
+        <div class="question">
+          <p><strong>VR 20. Sentence Correction:</strong> “While many critics argue that the artist’s work is overly abstract, others contend that it <em>offers a profound commentary on modern society</em>.”</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr20" id="vr20a" value="A">
+            <label class="form-check-label" for="vr20a">A) (No change)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr20" id="vr20b" value="B">
+            <label class="form-check-label" for="vr20b">B) (Remove “that” before the artist’s work)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr20" id="vr20c" value="C">
+            <label class="form-check-label" for="vr20c">C) (Replace “offers” with “offering”)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr20" id="vr20d" value="D">
+            <label class="form-check-label" for="vr20d">D) (Replace “offers” with “offers the”)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr20" id="vr20e" value="E">
+            <label class="form-check-label" for="vr20e">E) (Change verb tense in “argue” and “contend”)</label>
+          </div>
+        </div>
+        <!-- VR 21 -->
+        <div class="question">
+          <p><strong>VR 21. Critical Reasoning:</strong> A study found that employees who take short breaks every hour are more productive than those who do not. Which of the following, if true, most directly supports the study’s conclusion?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr21" id="vr21a" value="A">
+            <label class="form-check-label" for="vr21a">A) Employees who take short breaks report higher job satisfaction.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr21" id="vr21b" value="B">
+            <label class="form-check-label" for="vr21b">B) Companies that encourage breaks see fewer health-related absences.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr21" id="vr21c" value="C">
+            <label class="form-check-label" for="vr21c">C) Productivity metrics increase immediately following short breaks.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr21" id="vr21d" value="D">
+            <label class="form-check-label" for="vr21d">D) Some employees prefer working without breaks.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr21" id="vr21e" value="E">
+            <label class="form-check-label" for="vr21e">E) The study was conducted in multiple countries.</label>
+          </div>
+        </div>
+        <!-- VR 22 -->
+        <div class="question">
+          <p><strong>VR 22. Sentence Correction:</strong> “The market analyst’s report, although detailed, <em>failed to account for several key economic indicators</em>.”</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr22" id="vr22a" value="A">
+            <label class="form-check-label" for="vr22a">A) failed to account for several key economic indicators</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr22" id="vr22b" value="B">
+            <label class="form-check-label" for="vr22b">B) failing to account for several key economic indicators</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr22" id="vr22c" value="C">
+            <label class="form-check-label" for="vr22c">C) had failed to account for several key economic indicators</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr22" id="vr22d" value="D">
+            <label class="form-check-label" for="vr22d">D) fails to account for several key economic indicators</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr22" id="vr22e" value="E">
+            <label class="form-check-label" for="vr22e">E) fail to account for several key economic indicators</label>
+          </div>
+        </div>
+        <!-- VR 23 -->
+        <div class="question">
+          <p><strong>VR 23. Reading Comprehension:</strong> <em>Passage Excerpt:</em> “While technological innovation has undeniably accelerated global communication, it has also raised concerns regarding privacy and information security.”<br>
+            Which of the following best describes the tone of the passage?
+          </p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr23" id="vr23a" value="A">
+            <label class="form-check-label" for="vr23a">A) Celebratory</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr23" id="vr23b" value="B">
+            <label class="form-check-label" for="vr23b">B) Alarmist</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr23" id="vr23c" value="C">
+            <label class="form-check-label" for="vr23c">C) Balanced</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr23" id="vr23d" value="D">
+            <label class="form-check-label" for="vr23d">D) Dismissive</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="vr23" id="vr23e" value="E">
+            <label class="form-check-label" for="vr23e">E) Ironic</label>
+          </div>
+        </div>
       </form>
     </section>
-    
-    <!-- Section III: Data Insights -->
-    <section class="section" id="data-insights">
-      <h2>Section III: Data Insights (DI)</h2>
-      <p><strong>Number of Questions:</strong> 20 &nbsp;&nbsp;&nbsp;
-         <strong>Time Allotted:</strong> 45 Minutes &nbsp;&nbsp;&nbsp;
-         <strong>Scoring Range:</strong> 60–90 (1-point Increment)
-      </p>
+
+    <!-- Section III: Data Insights (DI) -->
+    <section id="data-insights" class="mb-5">
+      <div class="section-header">
+        <h2>Section III: Data Insights (DI)</h2>
+        <p>
+          <strong>Number of Questions:</strong> 20&nbsp;&nbsp;&nbsp;
+          <strong>Time Allotted:</strong> 45 Minutes&nbsp;&nbsp;&nbsp;
+          <strong>Scoring Range:</strong> 60–90 (1-point Increment)
+        </p>
+      </div>
       <form id="di-form">
-        <!-- Sample DI Question based on a table -->
+        <!-- DI Questions 1-5: Company Y Quarterly Revenues -->
+        <!-- DI 1 -->
         <div class="question">
           <p><strong>DI 1.</strong> Refer to the table below showing Company Y’s quarterly revenues (in millions USD) over two consecutive years:</p>
-          <table border="1" cellpadding="5" cellspacing="0">
-            <thead>
-              <tr>
-                <th>Quarter</th>
-                <th>Year 1</th>
-                <th>Year 2</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Q1</td>
-                <td>50</td>
-                <td>55</td>
-              </tr>
-              <tr>
-                <td>Q2</td>
-                <td>60</td>
-                <td>65</td>
-              </tr>
-              <tr>
-                <td>Q3</td>
-                <td>70</td>
-                <td>75</td>
-              </tr>
-              <tr>
-                <td>Q4</td>
-                <td>80</td>
-                <td>85</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-responsive mb-2">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Quarter</th>
+                  <th>Year 1</th>
+                  <th>Year 2</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Q1</td>
+                  <td>50</td>
+                  <td>55</td>
+                </tr>
+                <tr>
+                  <td>Q2</td>
+                  <td>60</td>
+                  <td>65</td>
+                </tr>
+                <tr>
+                  <td>Q3</td>
+                  <td>70</td>
+                  <td>75</td>
+                </tr>
+                <tr>
+                  <td>Q4</td>
+                  <td>80</td>
+                  <td>85</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <p>What is the total revenue for Company Y in Year 1?</p>
-          <div class="options">
-            <label><input type="radio" name="di1" value="A"> A) 250</label>
-            <label><input type="radio" name="di1" value="B"> B) 260</label>
-            <label><input type="radio" name="di1" value="C"> C) 270</label>
-            <label><input type="radio" name="di1" value="D"> D) 280</label>
-            <label><input type="radio" name="di1" value="E"> E) 290</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di1" id="di1a" value="A">
+            <label class="form-check-label" for="di1a">A) 250</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di1" id="di1b" value="B">
+            <label class="form-check-label" for="di1b">B) 260</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di1" id="di1c" value="C">
+            <label class="form-check-label" for="di1c">C) 270</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di1" id="di1d" value="D">
+            <label class="form-check-label" for="di1d">D) 280</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di1" id="di1e" value="E">
+            <label class="form-check-label" for="di1e">E) 290</label>
           </div>
         </div>
-        
-        <!-- You can add the remaining 19 DI questions similarly -->
-        <!-- ... -->
+        <!-- DI 2 -->
+        <div class="question">
+          <p><strong>DI 2.</strong> What is the percentage increase in revenue from Q1 of Year 1 to Q1 of Year 2?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di2" id="di2a" value="A">
+            <label class="form-check-label" for="di2a">A) 5%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di2" id="di2b" value="B">
+            <label class="form-check-label" for="di2b">B) 8%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di2" id="di2c" value="C">
+            <label class="form-check-label" for="di2c">C) 10%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di2" id="di2d" value="D">
+            <label class="form-check-label" for="di2d">D) 12%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di2" id="di2e" value="E">
+            <label class="form-check-label" for="di2e">E) 15%</label>
+          </div>
+        </div>
+        <!-- DI 3 -->
+        <div class="question">
+          <p><strong>DI 3.</strong> What is the average quarterly revenue for Company Y in Year 2?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di3" id="di3a" value="A">
+            <label class="form-check-label" for="di3a">A) 65</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di3" id="di3b" value="B">
+            <label class="form-check-label" for="di3b">B) 68</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di3" id="di3c" value="C">
+            <label class="form-check-label" for="di3c">C) 70</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di3" id="di3d" value="D">
+            <label class="form-check-label" for="di3d">D) 72</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di3" id="di3e" value="E">
+            <label class="form-check-label" for="di3e">E) 75</label>
+          </div>
+        </div>
+        <!-- DI 4 -->
+        <div class="question">
+          <p><strong>DI 4.</strong> What is the difference in revenue between Q4 of Year 2 and Q4 of Year 1?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di4" id="di4a" value="A">
+            <label class="form-check-label" for="di4a">A) 4</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di4" id="di4b" value="B">
+            <label class="form-check-label" for="di4b">B) 5</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di4" id="di4c" value="C">
+            <label class="form-check-label" for="di4c">C) 6</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di4" id="di4d" value="D">
+            <label class="form-check-label" for="di4d">D) 7</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di4" id="di4e" value="E">
+            <label class="form-check-label" for="di4e">E) 8</label>
+          </div>
+        </div>
+        <!-- DI 5 -->
+        <div class="question">
+          <p><strong>DI 5.</strong> If the revenue continues to increase at the same rate as from Year 1 to Year 2 for Q3, what would be the expected revenue for Q3 of Year 3?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di5" id="di5a" value="A">
+            <label class="form-check-label" for="di5a">A) 78</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di5" id="di5b" value="B">
+            <label class="form-check-label" for="di5b">B) 80</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di5" id="di5c" value="C">
+            <label class="form-check-label" for="di5c">C) 82</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di5" id="di5d" value="D">
+            <label class="form-check-label" for="di5d">D) 84</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di5" id="di5e" value="E">
+            <label class="form-check-label" for="di5e">E) 86</label>
+          </div>
+        </div>
+        <!-- DI Questions 6-8: Survey on Brand Preferences -->
+        <!-- DI 6 -->
+        <div class="question">
+          <p><strong>DI 6.</strong> According to a survey of 100 consumers, 40 preferred Brand A, 35 preferred Brand B, and 25 preferred Brand C. What percentage of consumers preferred Brand B?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di6" id="di6a" value="A">
+            <label class="form-check-label" for="di6a">A) 25%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di6" id="di6b" value="B">
+            <label class="form-check-label" for="di6b">B) 30%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di6" id="di6c" value="C">
+            <label class="form-check-label" for="di6c">C) 35%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di6" id="di6d" value="D">
+            <label class="form-check-label" for="di6d">D) 40%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di6" id="di6e" value="E">
+            <label class="form-check-label" for="di6e">E) 45%</label>
+          </div>
+        </div>
+        <!-- DI 7 -->
+        <div class="question">
+          <p><strong>DI 7.</strong> Which brand had the least number of preferences?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di7" id="di7a" value="A">
+            <label class="form-check-label" for="di7a">A) Brand A</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di7" id="di7b" value="B">
+            <label class="form-check-label" for="di7b">B) Brand B</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di7" id="di7c" value="C">
+            <label class="form-check-label" for="di7c">C) Brand C</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di7" id="di7d" value="D">
+            <label class="form-check-label" for="di7d">D) All brands were equal</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di7" id="di7e" value="E">
+            <label class="form-check-label" for="di7e">E) Not enough information</label>
+          </div>
+        </div>
+        <!-- DI 8 -->
+        <div class="question">
+          <p><strong>DI 8.</strong> If 10 consumers switch their preference from Brand A to Brand C, what are the new counts for Brands A and C, respectively?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di8" id="di8a" value="A">
+            <label class="form-check-label" for="di8a">A) 30 and 35</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di8" id="di8b" value="B">
+            <label class="form-check-label" for="di8b">B) 40 and 25</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di8" id="di8c" value="C">
+            <label class="form-check-label" for="di8c">C) 30 and 25</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di8" id="di8d" value="D">
+            <label class="form-check-label" for="di8d">D) 35 and 30</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di8" id="di8e" value="E">
+            <label class="form-check-label" for="di8e">E) 25 and 40</label>
+          </div>
+        </div>
+        <!-- DI Questions 9-12: Website Visitors Data -->
+        <!-- DI 9 -->
+        <div class="question">
+          <p><strong>DI 9.</strong> Refer to the table below showing monthly website visitors (in thousands) for a tech blog:</p>
+          <div class="table-responsive mb-2">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Visitors (in thousands)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>January</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>February</td>
+                  <td>65</td>
+                </tr>
+                <tr>
+                  <td>March</td>
+                  <td>80</td>
+                </tr>
+                <tr>
+                  <td>April</td>
+                  <td>95</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>What is the total number of visitors over these four months?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di9" id="di9a" value="A">
+            <label class="form-check-label" for="di9a">A) 280</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di9" id="di9b" value="B">
+            <label class="form-check-label" for="di9b">B) 285</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di9" id="di9c" value="C">
+            <label class="form-check-label" for="di9c">C) 290</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di9" id="di9d" value="D">
+            <label class="form-check-label" for="di9d">D) 300</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di9" id="di9e" value="E">
+            <label class="form-check-label" for="di9e">E) 310</label>
+          </div>
+        </div>
+        <!-- DI 10 -->
+        <div class="question">
+          <p><strong>DI 10.</strong> What is the average monthly visitor count during this period?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di10" id="di10a" value="A">
+            <label class="form-check-label" for="di10a">A) 70</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di10" id="di10b" value="B">
+            <label class="form-check-label" for="di10b">B) 72.5</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di10" id="di10c" value="C">
+            <label class="form-check-label" for="di10c">C) 75</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di10" id="di10d" value="D">
+            <label class="form-check-label" for="di10d">D) 77.5</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di10" id="di10e" value="E">
+            <label class="form-check-label" for="di10e">E) 80</label>
+          </div>
+        </div>
+        <!-- DI 11 -->
+        <div class="question">
+          <p><strong>DI 11.</strong> By how many thousand did the visitor count increase from January to February?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di11" id="di11a" value="A">
+            <label class="form-check-label" for="di11a">A) 10</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di11" id="di11b" value="B">
+            <label class="form-check-label" for="di11b">B) 12</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di11" id="di11c" value="C">
+            <label class="form-check-label" for="di11c">C) 15</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di11" id="di11d" value="D">
+            <label class="form-check-label" for="di11d">D) 17</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di11" id="di11e" value="E">
+            <label class="form-check-label" for="di11e">E) 20</label>
+          </div>
+        </div>
+        <!-- DI 12 -->
+        <div class="question">
+          <p><strong>DI 12.</strong> What is the percentage increase in visitors from March to April?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di12" id="di12a" value="A">
+            <label class="form-check-label" for="di12a">A) 15%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di12" id="di12b" value="B">
+            <label class="form-check-label" for="di12b">B) 18.75%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di12" id="di12c" value="C">
+            <label class="form-check-label" for="di12c">C) 20%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di12" id="di12d" value="D">
+            <label class="form-check-label" for="di12d">D) 25%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di12" id="di12e" value="E">
+            <label class="form-check-label" for="di12e">E) 30%</label>
+          </div>
+        </div>
+        <!-- DI Questions 13-14: Pie Chart for Annual Expenses -->
+        <!-- DI 13 -->
+        <div class="question">
+          <p><strong>DI 13.</strong> A pie chart shows the distribution of a company’s annual expenses as follows: Salaries: 50%, Rent: 20%, Utilities: 10%, Marketing: 10%, Miscellaneous: 10%. If the total annual expenses are $500,000, how much is spent on Marketing?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di13" id="di13a" value="A">
+            <label class="form-check-label" for="di13a">A) $25,000</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di13" id="di13b" value="B">
+            <label class="form-check-label" for="di13b">B) $40,000</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di13" id="di13c" value="C">
+            <label class="form-check-label" for="di13c">C) $50,000</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di13" id="di13d" value="D">
+            <label class="form-check-label" for="di13d">D) $60,000</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di13" id="di13e" value="E">
+            <label class="form-check-label" for="di13e">E) $75,000</label>
+          </div>
+        </div>
+        <!-- DI 14 -->
+        <div class="question">
+          <p><strong>DI 14.</strong> What is the combined percentage of expenses spent on Rent and Utilities?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di14" id="di14a" value="A">
+            <label class="form-check-label" for="di14a">A) 20%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di14" id="di14b" value="B">
+            <label class="form-check-label" for="di14b">B) 25%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di14" id="di14c" value="C">
+            <label class="form-check-label" for="di14c">C) 30%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di14" id="di14d" value="D">
+            <label class="form-check-label" for="di14d">D) 35%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di14" id="di14e" value="E">
+            <label class="form-check-label" for="di14e">E) 40%</label>
+          </div>
+        </div>
+        <!-- DI Questions 15-20: Factory Production Output -->
+        <!-- DI 15 -->
+        <div class="question">
+          <p><strong>DI 15.</strong> Refer to the table below showing the monthly production output (in units) for three products in a factory:</p>
+          <div class="table-responsive mb-2">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Output (units)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Product X</td>
+                  <td>1000</td>
+                </tr>
+                <tr>
+                  <td>Product Y</td>
+                  <td>1500</td>
+                </tr>
+                <tr>
+                  <td>Product Z</td>
+                  <td>500</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>What is the total production output for the month?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di15" id="di15a" value="A">
+            <label class="form-check-label" for="di15a">A) 2500</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di15" id="di15b" value="B">
+            <label class="form-check-label" for="di15b">B) 3000</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di15" id="di15c" value="C">
+            <label class="form-check-label" for="di15c">C) 3500</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di15" id="di15d" value="D">
+            <label class="form-check-label" for="di15d">D) 4000</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di15" id="di15e" value="E">
+            <label class="form-check-label" for="di15e">E) 4500</label>
+          </div>
+        </div>
+        <!-- DI 16 -->
+        <div class="question">
+          <p><strong>DI 16.</strong> What fraction of the total output is represented by Product Y?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di16" id="di16a" value="A">
+            <label class="form-check-label" for="di16a">A) 1/3</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di16" id="di16b" value="B">
+            <label class="form-check-label" for="di16b">B) 1/4</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di16" id="di16c" value="C">
+            <label class="form-check-label" for="di16c">C) 1/2</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di16" id="di16d" value="D">
+            <label class="form-check-label" for="di16d">D) 2/3</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di16" id="di16e" value="E">
+            <label class="form-check-label" for="di16e">E) 3/4</label>
+          </div>
+        </div>
+        <!-- DI 17 -->
+        <div class="question">
+          <p><strong>DI 17.</strong> If production of Product Z increases by 20% next month while production of Products X and Y remain unchanged, what will be the new total output?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di17" id="di17a" value="A">
+            <label class="form-check-label" for="di17a">A) 3050</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di17" id="di17b" value="B">
+            <label class="form-check-label" for="di17b">B) 3100</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di17" id="di17c" value="C">
+            <label class="form-check-label" for="di17c">C) 3150</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di17" id="di17d" value="D">
+            <label class="form-check-label" for="di17d">D) 3200</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di17" id="di17e" value="E">
+            <label class="form-check-label" for="di17e">E) 3250</label>
+          </div>
+        </div>
+        <!-- DI 18 -->
+        <div class="question">
+          <p><strong>DI 18.</strong> What percentage of the current total output is produced by Products X and Y combined?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di18" id="di18a" value="A">
+            <label class="form-check-label" for="di18a">A) 75%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di18" id="di18b" value="B">
+            <label class="form-check-label" for="di18b">B) 80%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di18" id="di18c" value="C">
+            <label class="form-check-label" for="di18c">C) 83.33%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di18" id="di18d" value="D">
+            <label class="form-check-label" for="di18d">D) 85%</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di18" id="di18e" value="E">
+            <label class="form-check-label" for="di18e">E) 90%</label>
+          </div>
+        </div>
+        <!-- DI 19 -->
+        <div class="question">
+          <p><strong>DI 19.</strong> Which product contributes the least to the total production output?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di19" id="di19a" value="A">
+            <label class="form-check-label" for="di19a">A) Product X</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di19" id="di19b" value="B">
+            <label class="form-check-label" for="di19b">B) Product Y</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di19" id="di19c" value="C">
+            <label class="form-check-label" for="di19c">C) Product Z</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di19" id="di19d" value="D">
+            <label class="form-check-label" for="di19d">D) All contribute equally</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di19" id="di19e" value="E">
+            <label class="form-check-label" for="di19e">E) Not enough information</label>
+          </div>
+        </div>
+        <!-- DI 20 -->
+        <div class="question">
+          <p><strong>DI 20.</strong> If the factory aims to increase its total output by 10% next month (based on the current total), what will be the target output?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di20" id="di20a" value="A">
+            <label class="form-check-label" for="di20a">A) 3200</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di20" id="di20b" value="B">
+            <label class="form-check-label" for="di20b">B) 3250</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di20" id="di20c" value="C">
+            <label class="form-check-label" for="di20c">C) 3300</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di20" id="di20d" value="D">
+            <label class="form-check-label" for="di20d">D) 3350</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="di20" id="di20e" value="E">
+            <label class="form-check-label" for="di20e">E) 3400</label>
+          </div>
+        </div>
       </form>
     </section>
-    
-    <footer>
-      <p><em>Please review your answers before submitting.</em></p>
-      <!-- (Optional: You could add a “Submit” button here and implement JavaScript to process answers) -->
-      <button class="submit-btn" onclick="alert('This is a practice test. Please review your answers.');">Submit Answers</button>
+
+    <footer class="text-center">
+      <p class="text-muted"><em>Please review your answers before submitting.</em></p>
+      <button class="btn btn-primary submit-btn" onclick="alert('This is a practice test. Please review your answers.');">Submit Answers</button>
     </footer>
   </div>
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
