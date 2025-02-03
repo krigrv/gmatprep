@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GMAT Focus Edition Exam Simulator</title>
+  <title>GMAT Focus Edition Exam for Sargam</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
@@ -18,13 +18,16 @@
     .option-label {
       cursor: pointer;
     }
+    .review-card {
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">GMAT Focus Edition Simulator</a>
+      <a class="navbar-brand" href="#">GMAT Focus Edition for Sargam Aggarwal</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -42,7 +45,7 @@
         With a total score range of <strong>205–805</strong> (all scores ending in 5) and a new weighting algorithm, the exam has been updated to focus on data literacy, critical thinking, and problem solving.
       </p>
       <p>
-        This simulation includes 64 questions in total, with no Sentence Correction or Geometry questions. Instead, expect Multi-Source Reasoning items in Data Insights.
+        This simulation includes 64 questions in total. Note that there are no Sentence Correction or Geometry questions—instead, expect Multi-Source Reasoning items in Data Insights.
       </p>
     </section>
 
@@ -138,13 +141,13 @@
           <div id="questionContainer-data" class="question-container"></div>
           <div id="navButtons-data" class="d-flex justify-content-between">
             <button id="prev-data" class="btn btn-secondary" disabled>Previous</button>
-            <button id="next-data" class="btn btn-primary">Next</button>
+            <button id="next-data" class="btn btn-primary">Submit Exam</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Results Section (hidden until submission) -->
+    <!-- Results Section -->
     <section id="resultsSection" class="mb-5" style="display:none;">
       <h2 class="mb-4">Exam Results</h2>
       <div class="table-responsive">
@@ -166,6 +169,46 @@
         </table>
       </div>
     </section>
+
+    <!-- Answer Review Section -->
+    <section id="reviewSection" class="mb-5" style="display:none;">
+      <h2 class="mb-4">Answer Review</h2>
+      <div class="accordion" id="reviewAccordion">
+        <!-- Quantitative Review -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="reviewHeadingQuant">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#reviewCollapseQuant" aria-expanded="true" aria-controls="reviewCollapseQuant">
+              Quantitative Review
+            </button>
+          </h2>
+          <div id="reviewCollapseQuant" class="accordion-collapse collapse show" aria-labelledby="reviewHeadingQuant" data-bs-parent="#reviewAccordion">
+            <div class="accordion-body" id="reviewQuant"></div>
+          </div>
+        </div>
+        <!-- Verbal Review -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="reviewHeadingVerbal">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#reviewCollapseVerbal" aria-expanded="false" aria-controls="reviewCollapseVerbal">
+              Verbal Review
+            </button>
+          </h2>
+          <div id="reviewCollapseVerbal" class="accordion-collapse collapse" aria-labelledby="reviewHeadingVerbal" data-bs-parent="#reviewAccordion">
+            <div class="accordion-body" id="reviewVerbal"></div>
+          </div>
+        </div>
+        <!-- Data Insights Review -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="reviewHeadingData">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#reviewCollapseData" aria-expanded="false" aria-controls="reviewCollapseData">
+              Data Insights Review
+            </button>
+          </h2>
+          <div id="reviewCollapseData" class="accordion-collapse collapse" aria-labelledby="reviewHeadingData" data-bs-parent="#reviewAccordion">
+            <div class="accordion-body" id="reviewData"></div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -178,7 +221,7 @@
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- JavaScript: Question Data and Navigation -->
+  <!-- JavaScript: Question Data, Navigation, and Review Generation -->
   <script>
     // QUESTION DATA ARRAYS
     const quantQuestions = [
@@ -263,14 +306,22 @@
     const verbalAnswers = Array(totalVerbal).fill(null);
     const dataAnswers = Array(totalData).fill(null);
 
-    // Helper: Render a question given a container, question object, current index, and section key ("quant", "verbal", "data")
+    // Render a question for a given section
     function renderQuestion(section, index) {
       let qData, container;
-      if(section === 'quant') { qData = quantQuestions[index]; container = document.getElementById("questionContainer-quant"); }
-      else if(section === 'verbal') { qData = verbalQuestions[index]; container = document.getElementById("questionContainer-verbal"); }
-      else if(section === 'data') { qData = dataQuestions[index]; container = document.getElementById("questionContainer-data"); }
+      if(section === 'quant') { 
+        qData = quantQuestions[index]; 
+        container = document.getElementById("questionContainer-quant"); 
+      }
+      else if(section === 'verbal') { 
+        qData = verbalQuestions[index]; 
+        container = document.getElementById("questionContainer-verbal"); 
+      }
+      else if(section === 'data') { 
+        qData = dataQuestions[index]; 
+        container = document.getElementById("questionContainer-data"); 
+      }
       
-      // Build HTML for the question
       let html = `<h5>Question ${index + 1}: ${qData.question}</h5><form id="${section}-form">`;
       qData.options.forEach((opt, i) => {
         const checked = ( (section === 'quant' && quantAnswers[index] === i) ||
@@ -288,7 +339,6 @@
 
       // Update navigation button state
       document.getElementById("prev-" + section).disabled = (index === 0);
-      // For "Next" button, if at the end, change text to "Done" or "Submit Exam" for last section.
       let nextBtn = document.getElementById("next-" + section);
       if(section === 'quant' && index === totalQuant - 1) {
         nextBtn.textContent = "Done";
@@ -301,7 +351,7 @@
       }
     }
 
-    // Save selected answer from current question for a section
+    // Save the selected answer
     function saveAnswer(section, index) {
       const form = document.querySelector(`#${section}-form`);
       if(form) {
@@ -312,7 +362,7 @@
       }
     }
 
-    // Navigation functions for each section
+    // Navigation for each section
     function nextQuestion(section) {
       let current, total;
       if(section === 'quant') { current = currentQuant; total = totalQuant; }
@@ -321,14 +371,11 @@
 
       saveAnswer(section, current);
       if(current < total - 1) {
-        // Move to next question
         if(section === 'quant') { currentQuant++; renderQuestion('quant', currentQuant); }
         else if(section === 'verbal') { currentVerbal++; renderQuestion('verbal', currentVerbal); }
         else if(section === 'data') { currentData++; renderQuestion('data', currentData); }
       } else {
-        // End of section: switch to next tab or submit exam if Data Insights
         if(section === 'quant') {
-          // Switch to Verbal tab and reset currentVerbal if needed
           currentVerbal = 0;
           renderQuestion('verbal', currentVerbal);
           new bootstrap.Tab(document.querySelector('#verbal-tab')).show();
@@ -337,7 +384,6 @@
           renderQuestion('data', currentData);
           new bootstrap.Tab(document.querySelector('#data-tab')).show();
         } else if(section === 'data') {
-          // Last question of Data Insights; submit exam
           submitExam();
         }
       }
@@ -356,9 +402,66 @@
       }
     }
 
-    // Submit exam: compute scores and display results
+    // Generate the Answer Review section after submission
+    function generateReview() {
+      // Helper to create review cards
+      function createReviewCard(qText, yourAnswer, correctAnswer, options) {
+        const isCorrect = yourAnswer === correctAnswer;
+        const yourAnsText = (yourAnswer === null) ? "No answer selected" : options[yourAnswer];
+        const correctAnsText = options[correctAnswer];
+        return `
+          <div class="card review-card">
+            <div class="card-body">
+              <h6>${qText}</h6>
+              <p>Your answer: 
+                <span class="badge ${isCorrect ? 'bg-success' : 'bg-danger'}">${yourAnsText}</span>
+                ${!isCorrect ? '<small class="ms-2 text-muted">Consider reviewing this concept.</small>' : ''}
+              </p>
+              ${!isCorrect ? `<p>Correct answer: <span class="badge bg-info text-dark">${correctAnsText}</span></p>` : ''}
+            </div>
+          </div>
+        `;
+      }
+
+      // Quantitative Review
+      const reviewQuantContainer = document.getElementById("reviewQuant");
+      reviewQuantContainer.innerHTML = "";
+      quantQuestions.forEach((q, i) => {
+        reviewQuantContainer.innerHTML += createReviewCard(
+          `Q${i+1}: ${q.question}`,
+          quantAnswers[i],
+          q.correct,
+          q.options
+        );
+      });
+
+      // Verbal Review
+      const reviewVerbalContainer = document.getElementById("reviewVerbal");
+      reviewVerbalContainer.innerHTML = "";
+      verbalQuestions.forEach((q, i) => {
+        reviewVerbalContainer.innerHTML += createReviewCard(
+          `Q${i+1}: ${q.question}`,
+          verbalAnswers[i],
+          q.correct,
+          q.options
+        );
+      });
+
+      // Data Insights Review
+      const reviewDataContainer = document.getElementById("reviewData");
+      reviewDataContainer.innerHTML = "";
+      dataQuestions.forEach((q, i) => {
+        reviewDataContainer.innerHTML += createReviewCard(
+          `Q${i+1}: ${q.question}`,
+          dataAnswers[i],
+          q.correct,
+          q.options
+        );
+      });
+    }
+
+    // Submit exam: calculate results and generate review
     function submitExam() {
-      // Save answer for last question
       saveAnswer('data', currentData);
       let correctCount = 0;
       quantQuestions.forEach((q, i) => { if(quantAnswers[i] == q.correct) correctCount++; });
@@ -371,18 +474,20 @@
       const verbalScore = 60 + 30 * (verbalAnswers.filter((a, i) => a === verbalQuestions[i].correct).length / totalVerbal);
       const dataScore = 60 + 30 * (dataAnswers.filter((a, i) => a === dataQuestions[i].correct).length / totalData);
       const avgSectionScore = (quantScore + verbalScore + dataScore) / 3;
-      // Map average (60 to 90) to total score range (205 to 805)
       let totalScore = 205 + ((avgSectionScore - 60) / 30) * 600;
-      // Round to nearest 5
       totalScore = Math.round(totalScore / 5) * 5;
       
-      // Show results
       document.getElementById("correctCount").textContent = correctCount;
       document.getElementById("wrongCount").textContent = wrongCount;
       document.getElementById("totalScore").textContent = totalScore;
-      // Hide exam questions section and display results section
+      
+      // Hide exam questions and display results and review sections
       document.getElementById("exam-questions").style.display = "none";
       document.getElementById("resultsSection").style.display = "block";
+      document.getElementById("reviewSection").style.display = "block";
+      
+      // Generate the detailed review
+      generateReview();
     }
 
     // Event listeners for navigation buttons
@@ -393,7 +498,7 @@
     document.getElementById("next-data").addEventListener("click", function() { nextQuestion('data'); });
     document.getElementById("prev-data").addEventListener("click", function() { prevQuestion('data'); });
 
-    // Initialize first questions for Quantitative section on page load
+    // Initialize first question on page load
     document.addEventListener("DOMContentLoaded", function() {
       renderQuestion('quant', currentQuant);
     });
