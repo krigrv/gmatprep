@@ -44,7 +44,7 @@
       <h1 class="mb-4">Exam Overview</h1>
       <p>
         This exam is structured for the GMAT Focus Edition and assesses your skills in Quantitative Reasoning, Verbal Reasoning, and Data Insights.
-        Each section has 45 minutes allotted. There are no Sentence Correction or Geometry questions; expect Multi-Source Reasoning items in Data Insights.
+        Each section is allotted 45 minutes. There are no Sentence Correction or Geometry questions; expect Multi-Source Reasoning items in Data Insights.
       </p>
     </section>
 
@@ -167,84 +167,212 @@
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- JavaScript: Data, Navigation, Section Timers, and Review Generation -->
+  <!-- JavaScript: Question Data, Navigation, Section Timers, and Review Generation -->
   <script>
-    // QUESTION DATA ARRAYS (same as before)
+    /**********************
+     * QUESTION DATA ARRAYS
+     **********************/
+
+    // Quantitative Reasoning (21 Questions)
     const quantQuestions = [
-      { question: "If x + 2 = 5, what is the value of x?", options: ["1", "2", "3", "4"], correct: 2 },
-      { question: "Solve for y: 3y = 12.", options: ["3", "4", "6", "12"], correct: 1 },
-      { question: "What is the product of 4 and 6?", options: ["24", "20", "18", "30"], correct: 0 },
-      { question: "If 2x = 10, what is x?", options: ["2", "3", "5", "10"], correct: 2 },
-      { question: "Solve: 10 - 3 = ?", options: ["7", "8", "5", "6"], correct: 0 },
-      { question: "What is 15 divided by 3?", options: ["3", "4", "5", "6"], correct: 2 },
-      { question: "If a = 7, what is a + 3?", options: ["9", "10", "11", "14"], correct: 1 },
-      { question: "Solve: 8 * 2 = ?", options: ["14", "16", "18", "20"], correct: 1 },
-      { question: "What is 9 - 4?", options: ["4", "5", "6", "7"], correct: 1 },
-      { question: "Solve: 12 / 4 = ?", options: ["2", "3", "4", "6"], correct: 1 },
-      { question: "What is the sum of 5 and 8?", options: ["10", "11", "12", "13"], correct: 3 },
-      { question: "If 3x = 15, what is x?", options: ["3", "4", "5", "6"], correct: 2 },
-      { question: "What is 7 x 3?", options: ["10", "18", "21", "24"], correct: 2 },
-      { question: "Solve: 20 - 9 = ?", options: ["10", "11", "12", "13"], correct: 1 },
-      { question: "What is 14 divided by 2?", options: ["6", "7", "8", "9"], correct: 1 },
-      { question: "If 2y = 14, what is y?", options: ["5", "6", "7", "8"], correct: 2 },
-      { question: "Solve: 9 + 6 = ?", options: ["14", "15", "16", "17"], correct: 1 },
-      { question: "What is 10 x 2?", options: ["10", "20", "25", "30"], correct: 1 },
-      { question: "If 16 / 4 = ?", options: ["2", "3", "4", "6"], correct: 2 },
-      { question: "Solve: 11 - 5 = ?", options: ["5", "6", "7", "8"], correct: 1 },
-      { question: "What is the sum of 7 and 7?", options: ["12", "13", "14", "15"], correct: 2 }
-    ];
-    const verbalQuestions = [
-      { question: "Which of the following best summarizes the passage about economic trends?", options: ["A focus on growth", "Concerns over recession", "Technological innovation", "Environmental impact"], correct: 1 },
-      { question: "In the passage, what is the author's primary argument regarding leadership?", options: ["The need for transparency", "The importance of delegation", "The value of innovation", "The risks of centralization"], correct: 0 },
-      { question: "What does the passage imply about market competition?", options: ["It is diminishing", "It is intensifying", "It is irrelevant", "It is stabilizing"], correct: 1 },
-      { question: "According to the passage, which factor is most critical for business success?", options: ["Customer service", "Cost reduction", "Innovation", "Risk management"], correct: 2 },
-      { question: "The author suggests that long-term planning is:", options: ["Unnecessary", "Risky", "Essential", "Overrated"], correct: 2 },
-      { question: "What is the tone of the passage?", options: ["Optimistic", "Pessimistic", "Neutral", "Sarcastic"], correct: 2 },
-      { question: "Which statement best reflects the passage's view on technology?", options: ["Technology is overrated", "Technology drives progress", "Technology hinders creativity", "Technology is a temporary trend"], correct: 1 },
-      { question: "What evidence does the author use to support their claim?", options: ["Statistical data", "Anecdotal examples", "Historical trends", "Expert opinions"], correct: 0 },
-      { question: "How does the passage define 'sustainable growth'?", options: ["Rapid expansion", "Balanced development", "Short-term profit", "Aggressive marketing"], correct: 1 },
-      { question: "What is the main purpose of the passage?", options: ["To inform", "To persuade", "To entertain", "To critique"], correct: 0 },
-      { question: "Which of the following best describes the author's perspective on risk?", options: ["Risk should be avoided", "Risk is necessary for innovation", "Risk is irrelevant", "Risk only applies to finance"], correct: 1 },
-      { question: "The passage implies that market trends are:", options: ["Predictable", "Uncertain", "Stable", "Uniform"], correct: 1 },
-      { question: "What does the author suggest about customer behavior?", options: ["Customers are loyal", "Customers are fickle", "Customers are rational", "Customers are easily influenced"], correct: 1 },
-      { question: "Which factor is least emphasized in the passage?", options: ["Innovation", "Risk", "Cost", "Leadership"], correct: 2 },
-      { question: "The phrase 'competitive edge' in the passage most nearly means:", options: ["Market dominance", "Innovative advantage", "High profitability", "Customer satisfaction"], correct: 1 },
-      { question: "According to the passage, what is a common misconception about success?", options: ["It requires hard work", "It happens overnight", "It is achieved through collaboration", "It is solely based on luck"], correct: 1 },
-      { question: "What is the author's stance on globalization?", options: ["It is beneficial", "It is detrimental", "It is inevitable", "It is overrated"], correct: 2 },
-      { question: "Which element does the passage credit with driving change?", options: ["Technology", "Government policy", "Consumer demand", "Economic theory"], correct: 0 },
-      { question: "How does the passage characterize market volatility?", options: ["As a challenge", "As an opportunity", "As a minor issue", "As a predictable cycle"], correct: 0 },
-      { question: "The author uses the term 'innovation' primarily to refer to:", options: ["New products", "New processes", "New ideas", "New markets"], correct: 2 },
-      { question: "What can be inferred about the future based on the passage?", options: ["It will be stable", "It will be uncertain", "It will regress", "It will be easily managed"], correct: 1 },
-      { question: "The main limitation of the study mentioned in the passage is:", options: ["Small sample size", "Short duration", "Lack of funding", "Methodological flaws"], correct: 0 },
-      { question: "What does the passage suggest about the role of leadership in change?", options: ["Leadership is passive", "Leadership is proactive", "Leadership is ineffective", "Leadership is unnecessary"], correct: 1 }
-    ];
-    const dataQuestions = [
-      { question: "Given the data set below, what is the average value? Data: [10, 20, 30, 40, 50]", options: ["30", "35", "40", "25"], correct: 0 },
-      { question: "The chart shows a steady increase in sales over 5 years. Which year had the highest growth rate?", options: ["Year 1", "Year 2", "Year 3", "Year 4"], correct: 3 },
-      { question: "Based on the table, what percentage of total revenue came from product A?", options: ["25%", "35%", "45%", "55%"], correct: 1 },
-      { question: "If the ratio of X to Y is 2:3 and X is 20, what is Y?", options: ["25", "30", "35", "40"], correct: 1 },
-      { question: "Multi-Source: Source 1: Sales increased by 10%. Source 2: Costs increased by 5%. What is the net impact on profit?", options: ["Increase", "Decrease", "No change", "Insufficient data"], correct: 0 },
-      { question: "Which of the following best describes the trend in the provided data?", options: ["Upward", "Downward", "Stable", "Fluctuating"], correct: 0 },
-      { question: "From the graph provided, what is the approximate value at the peak?", options: ["50", "60", "70", "80"], correct: 2 },
-      { question: "Based on the data, which product had the highest sales?", options: ["Product A", "Product B", "Product C", "Product D"], correct: 2 },
-      { question: "What is the median value of the data set: [3, 5, 7, 9, 11]?", options: ["5", "7", "9", "11"], correct: 1 },
-      { question: "Multi-Source: Considering Source 1 (customer feedback) and Source 2 (sales data), what can be inferred about product satisfaction?", options: ["High", "Moderate", "Low", "No correlation"], correct: 0 },
-      { question: "What is the difference between the maximum and minimum values in the data: [4, 8, 15, 16, 23]?", options: ["19", "20", "21", "22"], correct: 0 },
-      { question: "Which statement best describes the data trend?", options: ["Linear growth", "Exponential growth", "Cyclical pattern", "Random variation"], correct: 0 },
-      { question: "From the provided statistics, what is the most likely cause for the observed change?", options: ["Market expansion", "Increased competition", "New product launch", "Economic downturn"], correct: 2 },
-      { question: "If the data shows a 20% increase from last year’s 100 units, what is this year's number?", options: ["110", "120", "130", "140"], correct: 1 },
-      { question: "What is the percentage change from 50 to 75?", options: ["25%", "33%", "50%", "75%"], correct: 2 },
-      { question: "Based on the multi-source data, which factor appears to be most influential?", options: ["Market demand", "Cost efficiency", "Brand loyalty", "Product innovation"], correct: 3 },
-      { question: "In the provided table, which quarter had the highest revenue?", options: ["Q1", "Q2", "Q3", "Q4"], correct: 3 },
-      { question: "Multi-Source: With Source 1 showing a decline and Source 2 showing stable performance, what is the overall trend?", options: ["Decline", "Increase", "Stable", "Mixed"], correct: 3 },
-      { question: "What is the interquartile range of the data: [10, 15, 20, 25, 30]?", options: ["5", "10", "15", "20"], correct: 1 },
-      { question: "Which option best explains the discrepancy between two data sources?", options: ["Sampling error", "Measurement error", "Reporting delay", "All of the above"], correct: 3 }
+      {
+        question: "If a certain wheel turns at a constant rate of x revolutions per minute, how many revolutions will the wheel make in k seconds?",
+        options: ["60kx", "kx", "x÷k", "x÷(60k)", "kx÷60"],
+        correct: 4
+      },
+      {
+        question: "If 5x - 7 = 3x + 9, what is the value of x?",
+        options: ["6", "7", "8", "9", "10"],
+        correct: 2
+      },
+      {
+        question: "The sum of two numbers is 20 and their difference is 4. What is the product of the two numbers?",
+        options: ["96", "104", "112", "120", "128"],
+        correct: 0
+      },
+      {
+        question: "If 4a = 2b and a + b = 18, what is the value of a?",
+        options: ["4", "5", "6", "7", "8"],
+        correct: 2
+      },
+      {
+        question: "If 7y - 2 = 3y + 14, what is the value of y?",
+        options: ["2", "3", "4", "5", "6"],
+        correct: 2
+      },
+      {
+        question: "If 2(x - 3) = 4x + 6, what is the value of x?",
+        options: ["-6", "-5", "-4", "6", "7"],
+        correct: 0
+      },
+      {
+        question: "What is the value of (2x)² when x = 3?",
+        options: ["18", "24", "30", "36", "42"],
+        correct: 3
+      },
+      {
+        question: "If 3(x+2) = 2(2x+1), what is x?",
+        options: ["2", "3", "4", "5", "6"],
+        correct: 2
+      },
+      {
+        question: "Solve: 6/(x+1)=2. What is x?",
+        options: ["1", "2", "3", "4", "0"],
+        correct: 1
+      },
+      {
+        question: "If 5x+3=2(2x+4)+x, what is x?",
+        options: ["x=0", "x=1", "No solution", "Infinite solutions", "x=5"],
+        correct: 2
+      },
+      {
+        question: "If x/2 = 3/4, what is x?",
+        options: ["1", "1.5", "2", "2.5", "3"],
+        correct: 1
+      },
+      {
+        question: "If (x+1)/(x-1)=2, what is x?",
+        options: ["2", "3", "4", "5", "6"],
+        correct: 1
+      },
+      {
+        question: "Solve: x² - 5x + 6 = 0. What is the sum of the solutions?",
+        options: ["3", "4", "5", "6", "7"],
+        correct: 2
+      },
+      {
+        question: "If 2^(x+1)=16, what is x?",
+        options: ["2", "3", "4", "5", "6"],
+        correct: 1
+      },
+      {
+        question: "If log₂(x)=5, what is x?",
+        options: ["16", "32", "64", "128", "256"],
+        correct: 1
+      },
+      {
+        question: "Solve: 3^(x)=81. What is x?",
+        options: ["3", "4", "5", "6", "7"],
+        correct: 1
+      },
+      {
+        question: "If (x-2)(x+3)=0, what is the product of the solutions?",
+        options: ["-6", "6", "0", "1", "-1"],
+        correct: 0
+      },
+      {
+        question: "Solve for x: 2x + 3 = 3x - 4.",
+        options: ["6", "7", "8", "9", "10"],
+        correct: 1
+      },
+      {
+        question: "If 1/x = 2, what is x?",
+        options: ["0.5", "1", "2", "3", "4"],
+        correct: 0
+      },
+      {
+        question: "Solve: 4(x - 1) = 2x + 6.",
+        options: ["4", "5", "6", "7", "8"],
+        correct: 1
+      },
+      {
+        question: "If 3(x+2) = 2x + 9, what is x?",
+        options: ["2", "3", "4", "5", "6"],
+        correct: 1
+      }
     ];
 
-    // STATE VARIABLES for each section
-    const totalQuant = quantQuestions.length;
-    const totalVerbal = verbalQuestions.length;
-    const totalData = dataQuestions.length;
+    // Verbal Reasoning (23 Questions)
+    const verbalQuestions = [
+      {
+        question: "Reading Comprehension:\n\nDirections:\nThe questions in this group are based on the content of a passage. After reading the passage, choose the best answer to each question.\n\nPassage: \"Schools expect textbooks to be a valuable source of information for students. My research suggests, however, that textbooks that address the place of Native Americans within the history of the United States distort history to suit a particular cultural value system. In some textbooks, for example, settlers are pictured as more humane, complex, skillful, and wise than Native Americans. In essence, textbooks stereotype and depreciate the numerous Native American cultures while reinforcing the attitude that the European conquest of the New World denotes the superiority of European cultures. Although textbooks evaluate Native American architecture, political systems, and homemaking, I contend that they do it from an ethnocentric, European perspective without recognizing that other perspectives are possible. One argument against my contention asserts that, by nature, textbooks are culturally biased and that I am simply underestimating children's ability to see through these biases. Some researchers even claim that by the time students are in high school, they know they cannot take textbooks literally. Yet substantial evidence exists to the contrary. Two researchers, for example, have conducted studies that suggest that children's attitudes about particular cultures are strongly influenced by the textbooks used in schools. Given this, an ongoing, careful review of how school textbooks depict Native Americans is certainly warranted.\"\n\nQuestion:\nWhich of the following would most logically be the topic of the paragraph immediately following the passage?\n",
+        options: [
+          "Specific ways to evaluate the biases of United States history textbooks",
+          "The centrality of the teacher's role in United States history courses",
+          "Nontraditional methods of teaching United States history",
+          "The contributions of European immigrants to the development of the United States",
+          "Ways in which parents influence children's political attitudes"
+        ],
+        correct: 0
+      },
+      {
+        question: "Critical Reasoning:\n\nDirections:\nFor this question, select the best of the answer choices given.\n\nQuestion:\nMall Owner: Our mall’s occupancy rate is so low that we are barely making a profit. We cannot raise rents because of an unacceptably high risk of losing established tenants. On the other hand, a mall that is fully occupied costs about as much to run as one in which a rental space here and a rental space there stands empty. Clearly, therefore, to increase profits we must sign up new tenants.\n\nWhich of the following, if true, most seriously weakens the argument?\n",
+        options: [
+          "The mall’s operating costs could be cut by consolidating currently rented spaces in such a way that an entire wing of the mall could be closed up.",
+          "The mall is located in a geographic area in which costs incurred for air-conditioning in the hot summers exceed those incurred for heating in the mild winters by a wider margin.",
+          "The mall’s occupancy rate, though relatively low, has been relatively stable for several years.",
+          "The mall lost tenants as a result of each of the two major rent increases that have occurred there.",
+          "None of the mall’s established tenants is likely to need additional floor space there in the foreseeable future."
+        ],
+        correct: 0
+      }
+    ];
+
+    // Add 21 placeholder tough verbal questions (Questions 3–23)
+    for (let i = 3; i <= 23; i++) {
+      verbalQuestions.push({
+        question: "Critical Reasoning: Placeholder tough verbal question " + i + ".",
+        options: ["Option A", "Option B", "Option C", "Option D", "Option E"],
+        correct: 0
+      });
+    }
+
+    // Data Insights (20 Questions)
+    const dataQuestions = [
+      {
+        question: "Data Sufficiency:\n\nDirections:\nThis problem consists of a question and two statements. Decide whether the statements are sufficient to answer the question.\n\nQuestion:\nWhat is the monthly rent for a certain apartment?\n\n(1) The monthly rent per person for 4 people to share the rent is $375.\n(2) The monthly rent per person for 4 people to share the rent is $125 less than the monthly rent per person for 3 people to share the rent.\n",
+        options: [
+          "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient.",
+          "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient.",
+          "Both statements together are sufficient, but neither alone is sufficient.",
+          "Each statement alone is sufficient.",
+          "Statements together are not sufficient."
+        ],
+        correct: 0
+      },
+      {
+        question: "Multi-Source Reasoning:\n\nDirections:\nUsing the information from the following sources, answer the question.\n\nSource A: A company's sales increased by 15% last quarter.\nSource B: The company's profit margin decreased by 5% last quarter.\n\nQuestion:\nWhat can be inferred about the company's performance?\n",
+        options: [
+          "Sales increased, but efficiency decreased.",
+          "Sales increased significantly, leading to higher profits.",
+          "The company's performance improved overall.",
+          "The company is in a loss-making situation.",
+          "The provided data is insufficient to infer performance."
+        ],
+        correct: 0
+      },
+      {
+        question: "Table Analysis:\n\nDirections:\nA table shows the monthly production output (in units) for three factories:\nFactory A: 100, 120, 140\nFactory B: 90, 110, 130\nFactory C: 80, 105, 125\n\nQuestion:\nWhat is the average production of Factory B over the three months?",
+        options: ["110", "115", "120", "125", "130"],
+        correct: 0
+      },
+      {
+        question: "Graphics Interpretation:\n\nDirections:\nA bar chart shows quarterly revenue for a company as follows: Q1: $200K, Q2: $250K, Q3: $300K, Q4: $350K.\n\nQuestion:\nWhich quarter shows the highest percentage increase in revenue compared to the previous quarter?",
+        options: ["Q1", "Q2", "Q3", "Q4", "All quarters increased equally"],
+        correct: 1
+      },
+      {
+        question: "Two-Part Analysis:\n\nDirections:\nA survey shows that 60% of respondents prefer Product X over Product Y. If 40% of those who prefer Product Y switch to Product X after a price reduction, what is the new percentage of respondents who prefer Product X?",
+        options: ["60%", "64%", "68%", "72%", "76%"],
+        correct: 4
+      }
+    ];
+
+    // Add 15 placeholder tough data insights questions (Questions 6–20)
+    for (let i = 6; i <= 20; i++) {
+      dataQuestions.push({
+        question: "Placeholder Data Insights tough question " + i + ".",
+        options: ["Option A", "Option B", "Option C", "Option D", "Option E"],
+        correct: 0
+      });
+    }
+
+    /********************************
+     * STATE VARIABLES & TIMER SETUP
+     ********************************/
+    const totalQuant = quantQuestions.length;   // 21
+    const totalVerbal = verbalQuestions.length;   // 23
+    const totalData = dataQuestions.length;       // 20
     let currentQuant = 0, currentVerbal = 0, currentData = 0;
     const quantAnswers = Array(totalQuant).fill(null);
     const verbalAnswers = Array(totalVerbal).fill(null);
@@ -254,16 +382,16 @@
     let sectionTimeRemaining = 2700;
     let sectionTimerInterval = null;
 
-    // Helper: Format seconds as MM:SS (since each section is 45 minutes, no need for hours)
+    // Helper: Format seconds as MM:SS
     function formatTime(seconds) {
       const m = Math.floor(seconds / 60);
       const s = seconds % 60;
       return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
     }
 
-    // Start timer for current section
+    // Start timer for the current section
     function startSectionTimer() {
-      sectionTimeRemaining = 2700; // 45 minutes for the section
+      sectionTimeRemaining = 2700; // Reset to 45 minutes
       document.getElementById("timerDisplay").textContent = "Time Remaining: " + formatTime(sectionTimeRemaining);
       sectionTimerInterval = setInterval(() => {
         sectionTimeRemaining--;
@@ -276,7 +404,7 @@
       }, 1000);
     }
 
-    // Update progress for unanswered questions in a section
+    // Update progress: Count unanswered questions in the given section
     function updateProgress(section) {
       let unanswered = 0, total = 0;
       if (section === 'quant') {
@@ -325,7 +453,7 @@
       html += `</form>`;
       container.innerHTML = html;
 
-      // Update navigation button state (disable "Next" if answer not selected)
+      // Update navigation button text based on position in section
       document.getElementById("prev-" + section).disabled = (index === 0);
       let nextBtn = document.getElementById("next-" + section);
       if(section === 'quant' && index === totalQuant - 1) {
@@ -340,7 +468,7 @@
       updateProgress(section);
     }
 
-    // Save the selected answer for current question
+    // Save the selected answer for the current question
     function saveAnswer(section, index) {
       const form = document.querySelector(`#${section}-form`);
       if(form) {
@@ -355,36 +483,36 @@
       return false;
     }
 
-    // Navigation: Move to next question in current section; do not allow skipping unanswered questions
+    // Navigation: Next question (enforces answer selection)
     function nextQuestion(section) {
       let current, total;
       if(section === 'quant') { current = currentQuant; total = totalQuant; }
       else if(section === 'verbal') { current = currentVerbal; total = totalVerbal; }
       else if(section === 'data') { current = currentData; total = totalData; }
 
-      // Enforce that an answer must be selected before moving on
-      if(!saveAnswer(section, current)) {
+      // Do not allow skipping if no answer is selected
+      if (!saveAnswer(section, current)) {
         alert("Please select an answer before proceeding.");
         return;
       }
 
-      if(current < total - 1) {
+      if (current < total - 1) {
         if(section === 'quant') { currentQuant++; renderQuestion('quant', currentQuant); }
         else if(section === 'verbal') { currentVerbal++; renderQuestion('verbal', currentVerbal); }
         else if(section === 'data') { currentData++; renderQuestion('data', currentData); }
       } else {
-        // Finished section – move to next section
+        // End of section – move to next section
         moveToNextSection();
       }
     }
 
-    // Navigation: Previous question within current section
+    // Navigation: Previous question within the current section
     function prevQuestion(section) {
       let current;
       if(section === 'quant') { current = currentQuant; }
       else if(section === 'verbal') { current = currentVerbal; }
       else if(section === 'data') { current = currentData; }
-      if(current > 0) {
+      if (current > 0) {
         saveAnswer(section, current);
         if(section === 'quant') { currentQuant--; renderQuestion('quant', currentQuant); }
         else if(section === 'verbal') { currentVerbal--; renderQuestion('verbal', currentVerbal); }
@@ -392,7 +520,7 @@
       }
     }
 
-    // Show a specific section and hide the others; also restart the timer for that section
+    // Show a specific section (Quant, then Verbal, then Data)
     function showSection(sectionId) {
       const sections = ["section-quant", "section-verbal", "section-data"];
       sections.forEach(id => {
@@ -403,21 +531,21 @@
       startSectionTimer();
     }
 
-    // Move to the next section sequentially
+    // Move sequentially to the next section
     function moveToNextSection() {
       if(document.getElementById("section-quant").classList.contains("active-section")) {
-        // Move from Quantitative to Verbal
+        // Finished Quantitative: move to Verbal
         showSection("section-verbal");
       } else if(document.getElementById("section-verbal").classList.contains("active-section")) {
-        // Move from Verbal to Data Insights
+        // Finished Verbal: move to Data Insights
         showSection("section-data");
       } else if(document.getElementById("section-data").classList.contains("active-section")) {
-        // Last section: submit exam
+        // Finished Data Insights: submit exam
         submitExam();
       }
     }
 
-    // Generate the detailed answer review
+    // Generate the detailed Answer Review section
     function generateReview() {
       function createReviewCard(qText, yourAnswer, correctAnswer, options) {
         const isCorrect = yourAnswer === correctAnswer;
@@ -471,9 +599,9 @@
       });
     }
 
-    // Submit exam: compute results and generate review
+    // Submit the exam: compute results and generate the review
     function submitExam() {
-      // Ensure last question is saved
+      // Ensure the last answer is saved if in Data section
       if(document.getElementById("section-data").classList.contains("active-section")) {
         saveAnswer('data', currentData);
       }
@@ -484,7 +612,7 @@
       dataQuestions.forEach((q, i) => { if(dataAnswers[i] == q.correct) correctCount++; });
       let wrongCount = 64 - correctCount;
       
-      // Calculate section scores and map to GMAT total score range (205–805)
+      // Calculate section scores and map average to GMAT total score (205–805)
       const quantScore = 60 + 30 * (quantAnswers.filter((a, i) => a === quantQuestions[i].correct).length / totalQuant);
       const verbalScore = 60 + 30 * (verbalAnswers.filter((a, i) => a === verbalQuestions[i].correct).length / totalVerbal);
       const dataScore = 60 + 30 * (dataAnswers.filter((a, i) => a === dataQuestions[i].correct).length / totalData);
@@ -496,7 +624,7 @@
       document.getElementById("wrongCount").textContent = wrongCount;
       document.getElementById("totalScore").textContent = totalScore;
       
-      // Hide all sections and timer; show results and review
+      // Hide sections and timer; show results and review
       document.getElementById("section-data").style.display = "none";
       document.getElementById("timerSection").style.display = "none";
       document.getElementById("resultsSection").style.display = "block";
@@ -505,7 +633,9 @@
       generateReview();
     }
 
-    // Event listeners for navigation buttons in each section
+    /**********************
+     * EVENT LISTENERS
+     **********************/
     document.getElementById("next-quant").addEventListener("click", function() { nextQuestion('quant'); });
     document.getElementById("prev-quant").addEventListener("click", function() { prevQuestion('quant'); });
     document.getElementById("next-verbal").addEventListener("click", function() { nextQuestion('verbal'); });
@@ -513,15 +643,14 @@
     document.getElementById("next-data").addEventListener("click", function() { nextQuestion('data'); });
     document.getElementById("prev-data").addEventListener("click", function() { prevQuestion('data'); });
 
-    // End Session Early button event
     document.getElementById("endSessionBtn").addEventListener("click", function() {
       if(confirm("Are you sure you want to end the session early? Your exam will be submitted.")) {
         submitExam();
       }
     });
 
-    // Start Exam button event: hide start section, show Quantitative section, and start its timer
     document.getElementById("startExamBtn").addEventListener("click", function() {
+      // Hide start section, show Quantitative section and timer
       document.getElementById("startSection").style.display = "none";
       document.getElementById("timerSection").style.display = "flex";
       document.getElementById("section-quant").style.display = "block";
